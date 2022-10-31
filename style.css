@@ -1,0 +1,104 @@
+:root {
+  --primary: #344e41;
+  --secondary: #588157;
+  --background: #dad7cd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+html, body {
+  font-family: Montserrat, "sans serif";
+  background: var(--background)!important;
+  color: var(--primary)!important;
+  font-size: 40px;
+  padding: 0!important;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  all: unset;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+.slides > section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .5rem
+}
+
+.stack1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.9rem;
+}
+
+pre code,
+pre {
+  font: monospace;
+  line-height: 1.4;
+  min-height: auto!important;
+  font-size: inherit;
+}
+
+pre {
+  margin-inline: auto;
+  text-align: left;
+  min-width: 400px;
+}
+
+img {
+  display: block;
+  margin-inline: auto;
+}
+
+ul {
+  list-style: disc;
+  width: max-content;
+  margin-inline: auto;
+  text-align: left;
+}
+
+ul.bare li {
+  display: block;
+}
+
+ul li + li {
+  margin-top: 1rem;
+}
+
+figcaption {
+  margin-top: 1em;
+  font-size: 0.5rem;
+}
+
+.small {
+  font-size: 0.5rem;
+}
+
+pre {
+  max-width: 100%;
+}
