@@ -116,3 +116,13 @@ figcaption {
 pre {
   max-width: 100%;
 }
+
+/**
+* Reveal overrides
+**/
+.reveal .slides>section[data-transition=slide].past, .reveal .slides>section[data-transition~=slide-out].past, .reveal.slide .slides>section:not([data-transition]).past {
+  transform: translate(-75%,0);
+}
+.reveal .slides>section[data-transition=slide].future, .reveal .slides>section[data-transition~=slide-in].future, .reveal.slide .slides>section:not([data-transition]).future {
+  transform: translate(75%,0);
+}

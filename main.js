@@ -14,6 +14,6 @@ deck.initialize({
   controls: false,
   hash: true,
   // disableLayout: true,
-  transition: 'fade',
+  transition: document.body.dataset.transition ?? 'slide',
   display: "flex",
 });
