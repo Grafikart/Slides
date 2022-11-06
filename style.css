@@ -1,7 +1,7 @@
 :root {
-  --primary: #344e41;
-  --secondary: #588157;
-  --background: #dad7cd;
+  --primary: #d4dcff;
+  --secondary: #8491c7;
+  --background: #171933;
 }
 
 * {
@@ -26,6 +26,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
+}
+
+p {
+  color: var(--secondary)
 }
 
 .slides > section {
@@ -68,6 +72,11 @@ pre {
   margin-inline: auto;
   text-align: left;
   min-width: 400px;
+  max-height: calc(100% - 40px);
+}
+
+pre code {
+  max-height: 100%;
 }
 
 img {

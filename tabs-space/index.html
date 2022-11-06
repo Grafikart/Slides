@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SlideShow</title>
+  <title>Indentation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -13,6 +12,13 @@
   <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    :root body {
+      --primary: #344e41;
+      --secondary: #3b5a4a;
+      --background: #dad7cd;
+    }
+  </style>
 </head>
 
 <body>
@@ -30,7 +36,7 @@
       </section>
 
       <section>
-        <pre data-trim data-noescape><code class="language-html">
+        <pre><code data-trim data-noescape class="language-html">
 &lt;section&gt;
 &lt;h1&gt;Ceci est un titre&lt;/h1&gt;
 &lt;ul&gt;
@@ -49,7 +55,7 @@
       </section>
 
       <section>
-        <pre data-trim data-noescape><code class="language-html">
+        <pre><code data-trim data-noescape class="language-html">
 &lt;section&gt;
     &lt;h1&gt;Ceci est un titre&lt;/h1&gt;
     &lt;ul&gt;
@@ -68,7 +74,7 @@
       </section>
 
       <section>
-        <pre data-trim data-noescape><code class="language-javascript">
+        <pre><code data-trim data-noescape class="language-javascript">
 for(let i = 0; i &lt; 8; i++) {
 for(let j =0; j &lt; 8; j++) {
 if((i + j) % 2 === 0) {
@@ -80,7 +86,7 @@ console.log({i, j})
       </section>
 
       <section>
-        <pre data-trim data-noescape><code class="language-javascript">
+        <pre><code data-trim data-noescape class="language-javascript">
 for(let i = 0; i &lt; 8; i++) {
     for(let j =0; j &lt; 8; j++) {
         if((i + j) % 2 === 0) {
