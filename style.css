@@ -22,6 +22,7 @@ html, body {
 
 h1, h2, h3, h4, h5, h6, p {
   all: unset;
+  line-height: 1.4;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,7 +30,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  color: var(--secondary)
+  color: var(--secondary);
+  line-height: 1.4;
+}
+
+strong {
+  color: var(--primary);
 }
 
 .slides > section {
