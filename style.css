@@ -12,6 +12,10 @@ a {
   color: inherit;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 html, body {
   font-family: Montserrat, "sans serif";
   background: var(--background)!important;
