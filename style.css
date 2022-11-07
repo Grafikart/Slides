@@ -126,3 +126,7 @@ pre {
 .reveal .slides>section[data-transition=slide].future, .reveal .slides>section[data-transition~=slide-in].future, .reveal.slide .slides>section:not([data-transition]).future {
   transform: translate(75%,0);
 }
+.controls-arrow,
+.progress span {
+  color: var(--secondary);
+}
