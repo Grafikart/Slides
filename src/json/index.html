@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+  
+  <script type="module" crossorigin src="/assets/modulepreload-polyfill-ec808ebb.js"></script>
+  <script type="module" crossorigin src="/assets/main-3f046c3b.js"></script>
+  <link rel="stylesheet" href="/assets/main-3377db15.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>JSON</h1>
+        <p><strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</p>
+        <p class="small"><a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf" target="_blank">ECMA-404 The JSON Data Interchange Standard</a></p>
+      </section>
+
+      <section>
+        <h2>Format pour représenter des données</h2>
+        <p>Utile pour stocker et transmettre informations</p>
+      </section>
+
+      <section>
+        <pre><code data-trim data-noescape class="language-json">
+[
+  {
+    "id": 56693,
+    "username": "Marc",
+    "content": "Bonsoir!\n\nMais.. dans quel contexte réel on utiliserait une telle structure? C'est assez anti-accessibilité et justement à l'encontre des spécifications..  je dis ça je dis rien..",
+    "avatar": "/images/default.png",
+    "createdAt": 1663013968,
+    "parent": 0,
+    "userId": null
+  },
+  {
+    "id": 56697,
+    "username": "Sylvain",
+    "content": "Il y a des cas classiques je trouve, genre tu as une liste de \"cards\", chacune d'entre elles représentant un article de blog (avec un titre, l'auteur, la description...), tu peux donc cliquer sur la carte directement pour accéder à l'article mais aussi cliquer sur le nom de l'auteur pour accéder à la page de présentation de l'auteur.\n",
+    "avatar": "/images/default.png",
+    "createdAt": 1663061752,
+    "parent": 56693,
+    "userId": null
+  },
+  {
+    "id": 56698,
+    "username": "Sylvain",
+    "content": "Cliquer sur la carte => Cliquer sur le blanc ou sur n'importe quel zone qui n'est pas un lien.",
+    "avatar": "/images/default.png",
+    "createdAt": 1663061812,
+    "parent": 56693,
+    "userId": null
+  }
+]
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Nombre</h2>
+
+        <pre><code data-trim data-noescape class="language-json">
+1
+-3
+1.5
+10e10
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Une chaine de caractère</h2>
+
+        <pre><code data-trim data-noescape class="language-json">
+"Bonjour les gens"
+"Je veux mettre du \"texte\" entre guillemet"
+"Je saute\nune ligne"
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Un booléen</h2>
+
+        <pre><code data-trim data-noescape class="language-json">
+true
+false
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Null</h2>
+
+        <pre><code data-trim data-noescape class="language-json">
+null
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Tableau</h2>
+
+        <div class="r-stack">
+        <pre><code data-trim data-noescape class="language-json">
+["valeur", 3, true]
+        </code></pre>
+        <pre class="fragment"><code data-trim data-noescape class="language-json">
+["valeur", ["tableau", "imbriqué"]]
+        </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Objet</h2>
+
+        <div class="r-stack">
+        <pre><code data-trim data-noescape class="language-json">
+{
+  "firstname": "John",
+  "lastname": "Doe",
+  "age": 18
+}
+        </code></pre>
+        <pre class="fragment"><code data-trim data-noescape class="language-json">
+{
+  "firstname": "John",
+  "lastname": "Doe",
+  "age": 18,
+  "job": {
+    "name": "Développeur web",
+    "start": 9,
+    "end": 19
+  }
+}
+        </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Exemple</h2>
+        <p>
+          Créer un fichier JSON qui représente un <strong>article</strong> (titre, contenu, auteur) <br/>
+          et ses <strong>commentaires</strong> (username, contenu, réponses)
+        </p>
+      </section>
+
+      <section>
+        <h2><a href="https://json-schema.org/">JSON Schema</a></h2>
+        <p>Permet de définir le format attendu pour un JSON</p>
+      </section>
+
+      <section>
+        <h2>JSONC</h2>
+        <p>
+         JSON avec commentaires
+        </p>
+      </section>
+
+    </div>
+  </div>
+</body>
+
+</html>
