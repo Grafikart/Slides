@@ -19,6 +19,10 @@ export default defineConfig({
   base: '/Slide/',
   build: {
     rollupOptions: {
+      output: {
+        assetFileNames: "assets/[name][extname]",
+        chunkFileNames: "[name].js"
+      },
       input: paths.reduce((acc, r) => {
         return {
           ...acc,
