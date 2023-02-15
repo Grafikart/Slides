@@ -16,7 +16,7 @@ const pathToName = (path: string): string => {
 const paths = ["index.html", ...(await globby(["src/**/index.html"]))];
 
 export default defineConfig({
-  base: '/Slide/',
+  base: '/Slides/',
   build: {
     rollupOptions: {
       output: {
