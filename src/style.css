@@ -61,6 +61,10 @@ strong {
   gap: 1rem;
 }
 
+.text-secondary {
+  color: var(--secondary);
+}
+
 h1 {
   font-size: 2.5rem;
 }
