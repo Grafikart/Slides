@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script type="module" src="/src/main.ts" defer></script>
+  <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root body {
+      --primary: #f7df1e;
+      --secondary: rgb(220, 215, 210);
+      --background: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>L'outillage JavaScript</h1>
+      </section>
+
+      <section>
+        <h2>La terminologie</h2>
+        <ul class="text-secondary">
+          <li>Bundler</li>
+          <li>Transpiler</li>
+          <li>Formatter</li>
+          <li>Linter</li>
+          <li>Package manager</li>
+        </ul>
+      </section>
+
+      <section>
+        <section>
+          <h1>Bundler</h1>
+          <p>Permet de combiner plusieurs fichiers en un seul</p>
+        </section>
+
+        <section>
+        <pre><code  data-trim data-noescape class="language-html">
+          &lt;script src="main.js" type="module">
+        </code></pre>
+          <pre class="fragment"><code  data-trim data-noescape class="language-js">
+          import { hello } from './module1.js'
+          import { capitalize } from './module2.js'
+
+          hello(capitalize("john"))
+        </code></pre>
+        </section>
+
+        <section>
+          <pre><code data-trim data-noescape class="language-js">
+          function hello (name) {
+            console.log('Bonjour ' + name);
+          }
+
+          function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+          }
+
+          hello(capitalize("john"))
+        </code></pre>
+        </section>
+
+        <section>
+          <h1>Outils</h1>
+          <ul class="text-secondary">
+            <li>esbuild</li>
+            <li>SWC</li>
+            <li>rollup</li>
+            <li>rspack</li>
+            <li>...</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Transpiler</h1>
+          <p>Permet de transformer un langage en JavaScript</p>
+        </section>
+
+
+        <section>
+          <h1>Pourquoi ?</h1>
+          <ul class="text-secondary">
+            <li>Supporter d'anciens navigateurs</li>
+            <li>Syntaxes alternatives (TypeScript, JSX)</li>
+          </ul>
+        </section>
+
+        <section>
+          <pre><code  data-trim data-noescape class="language-js">
+          [...arr].reduce((acc, curr) => acc.concat(curr), [])
+        </code></pre>
+        </section>
+
+        <section>
+          <h1>Outils</h1>
+          <ul class="text-secondary">
+            <li>babel</li>
+            <li>tsc</li>
+            <li>esbuild</li>
+            <li>...</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Linter</h1>
+          <p>Permet une analyse statique du code</p>
+        </section>
+
+        <section>
+          <h1>Pourquoi ?</h1>
+          <ul class="text-secondary">
+            <li>Éviter les erreurs en amont</li>
+            <li>Promouvoir de meilleurs pratiques</li>
+            <li>Assurer une cohérence en équipe</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Outils</h1>
+          <ul class="text-secondary">
+            <li>eslint</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Formatter</h1>
+          <p>Permet de mettre en forme le code</p>
+        </section>
+
+        <section>
+          <h1>Pourquoi ?</h1>
+          <ul class="text-secondary">
+            <li>Assurer une cohérence en équipe</li>
+            <li>Rend le code plus lisible</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Outils</h1>
+          <ul class="text-secondary">
+            <li>prettier</li>
+            <li>eslint</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Package manager</h1>
+          <p>Permet d'utiliser des librairies tiers</p>
+        </section>
+
+        <section>
+          <h1>Outils</h1>
+          <p>On utilise l'écosystème de NodeJS</p>
+          <ul class=" fragment text-secondary" style="margin-top: 0;">
+            <li>npm</li>
+            <li>yarn</li>
+            <li>pnpm</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Starter kit</h1>
+          <p>Permet de démarrer rapidement</p>
+        </section>
+
+        <section>
+          <h1>Outils</h1>
+          <ul class="text-secondary">
+            <li>vite</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <h1>Conclusion</h1>
+        <p>Ne vous focalisez pas sur les outils</p>
+      </section>
+
+    </div>
+  </div>
+</body>
+
+</html>
