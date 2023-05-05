@@ -42,10 +42,10 @@
     <section>
       <h1>Le JavaScript</h1>
       <ul>
-        <li>Langage de script pour le navigateur</li>
-        <li>Typage faible</li>
-        <li>Dynamique</li>
-        <li>Évènementiel</li>
+        <li class="fragment">Langage de script pour le navigateur</li>
+        <li class="fragment">Typage faible</li>
+        <li class="fragment">Dynamique</li>
+        <li class="fragment">Évènementiel</li>
       </ul>
       <aside class="notes">
         Temps : 2min
@@ -53,22 +53,43 @@
     </section>
 
     <section>
+      <h1>Défaut du JavaScript</h1>
+      <p class="fragment">Pas de type = Pas de documentation</p>
+      <aside class="notes">
+        Temps : 30sec
+      </aside>
+    </section>
+
+    <section>
         <pre><code  data-trim data-noescape class="language-js">
-function main () {
-    const input = document.querySelector("input");
-    const result = document.querySelector('.result')
-
-    if (!input || !result) {
-        return;
+export function offsetTop(element, parent = null) {
+  let top = element.offsetTop;
+  while ((element = element.offsetParent)) {
+    if (parent === element) {
+      return top;
     }
-
-    input.addEventListener("input", function(event) {
-        const texte = input.value
-        result.innerText = texte.toUpperCase()
-    });
+    top += element.offsetTop;
+  }
+  return top;
 }
+        </code></pre>
+      <aside class="notes">
+        Temps : 0min
+      </aside>
+    </section>
 
-main();
+    <section>
+        <pre><code  data-trim data-noescape class="language-js">
+/**
+ * Trouve la position de l'élément
+ * par rapport au haut de la page
+ *
+ * @param {HTMLElement} element
+ * @param {HTMLElement|null} parent
+ */
+export function offsetTop(element, parent = null) {
+  return top;
+}
         </code></pre>
       <aside class="notes">
         Temps : 0min
@@ -77,7 +98,7 @@ main();
 
     <section>
       <h1>Défaut du JavaScript</h1>
-      <p class="fragment">Langage trop dynamique</p>
+      <p>Langage trop dynamique</p>
       <aside class="notes">
         Temps : 30sec
       </aside>
