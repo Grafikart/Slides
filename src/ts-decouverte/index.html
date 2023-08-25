@@ -53,6 +53,26 @@
     </section>
 
     <section>
+        <pre><code  data-trim data-noescape class="language-js">
+function main () {
+    const input = document.querySelector("input");
+    const result = document.querySelector('.result')
+
+    if (!input || !result) {
+        return;
+    }
+
+    input.addEventListener("input", function(event) {
+        const texte = input.value
+        result.innerText = texte.toUpperCase()
+    });
+}
+
+main();
+        </code></pre>
+    </section>
+
+    <section>
       <h1>Défaut du JavaScript</h1>
       <p class="fragment">Pas de type = Pas de documentation</p>
       <aside class="notes">
@@ -269,6 +289,15 @@ type Person = {firstname: string, lastname: string}
 
 type AgedPerson = Person & {age: number}
         </code></pre>
+    </section>
+
+    <section>
+      <h1>Inconvénients</h1>
+      <ul>
+        <li class="fragment">Outils supplémentaires</li>
+        <li class="fragment">Limite le dynamisme</li>
+        <li class="fragment">Breaking change</li>
+      </ul>
     </section>
 
     <section>
