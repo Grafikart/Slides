@@ -29,3 +29,12 @@ const initReveal = () => {
 if (document.querySelector('.reveal')) {
   initReveal()
 }
+
+// Calculate duration
+const timeElements = document.querySelectorAll<HTMLElement>("[data-time]")
+if (timeElements.length > 0) {
+  const duration = Array.from(timeElements)
+      .map(el => parseInt(el.dataset.time ?? '', 10))
+      .reduce((acc, duration) => acc + duration, 0)
+  console.log(`Durée : ${Math.floor(duration / 60)}min${duration % 60}`)
+}
