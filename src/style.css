@@ -66,6 +66,10 @@ strong {
   gap: 1rem;
 }
 
+.text-primary {
+  color: var(--primary);
+}
+
 .text-secondary {
   color: var(--secondary);
 }

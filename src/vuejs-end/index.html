@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VueJS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script type="module" src="../main.ts" defer></script>
+  <style>
+    :root body {
+      --primary: #42b883;
+      --secondary: #35495e;
+      --background: #FFF;
+    }
+  </style>
+</head>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <section>
+      <h1>Pourquoi Vue.js ne me convient plus</h1>
+    </section>
+
+    <section>
+      <h2>Mon historique</h2>
+      <ul class="text-secondary">
+        <li>AngularJS <span class="text-primary">(2010)</span></li>
+        <li>React <span class="text-primary">(2013) 💔</span></li>
+        <li>Vue.js <span class="text-primary">(2015)</span></li>
+        <li>React hooks<span class="text-primary">(2019)</span></li>
+        <li>Vue.js 3<span class="text-primary">(2020) 💔</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Je n'aime pas les fichiers <span class="text-secondary">.vue</span></h2>
+      <p>
+        L'outillage doit être adapté<br/>
+        format / lint / typecheck
+      </p>
+    </section>
+
+    <section>
+      <h2>Un composant par fichier</h2>
+      <p>Rend le découpage plus difficile</p>
+    </section>
+
+    <section>
+      <h2>L'API Composable</h2>
+      <p>Problématique si on de-structure</p>
+    </section>
+
+    <section>
+      <h2>Le VirtualDOM</h2>
+      <p>Utilisé en interne sans les bénéfices en externe</p>
+      <p class="fragment">Evolution vers <a href="https://blog.vuejs.org/posts/2022-year-in-review#vapor-mode">"Vapor" et les signaux</a> à suivre</p>
+    </section>
+
+    <section>
+      <h2>Svelte</h2>
+      <p>Plus proche de l'idée originale de VueJS (à voir avec la V5)</p>
+    </section>
+
+    <section>
+      <h2>Tout est subjectif</h2>
+      <p>Ce qui est bloquant pour moi ne l'est pas forcément pour vous</p>
+    </section>
+
+  </div>
+</div>
+</body>
+
+</html>
