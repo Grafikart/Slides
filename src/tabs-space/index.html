@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
+  <style>
+    :root body {
+      --primary: #344e41;
+      --secondary: #3b5a4a;
+      --background: #dad7cd;
+    }
+  </style>
+  <script type="module" crossorigin src="/Slides/modulepreload-polyfill.js"></script>
+  <script type="module" crossorigin src="/Slides/main.js"></script>
+  <link rel="stylesheet" href="/Slides/assets/main.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>L'indentation</h1>
+        <p>Espace ou Tabulation ?</p>
+      </section>
+
+      <section>
+        <h3>Les espaces aident à la mise en page</h3>
+        <img src="/Slides/assets/doc.webp" alt="" width="1048" style="margin-top: 16px;">
+      </section>
+
+      <section>
+        <pre><code data-trim data-noescape class="language-html">
+&lt;section&gt;
+&lt;h1&gt;Ceci est un titre&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PHP&lt;/strong&gt;, PSR &quot;Code MUST use 4 spaces for indenting, not tabs.&quot;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JavaScript&lt;/strong&gt;, Prettier 2 espaces&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt;, PEP8 &quot;Use 4 spaces per indentation level.&quot;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Linux kernel&lt;/strong&gt;, &lt;a href=&quot;https://www.kernel.org/doc/html/v4.10/process/coding-style.html&quot;&gt;8 espaces&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Golang&lt;/strong&gt;, Tab&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Makefile&lt;/strong&gt;, Tab&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;small&quot;&gt;
+&lt;a href=&quot;http://www.opimedia.be/DS/languages/tabs-vs-spaces/&quot;&gt;The Bible of Tabs vs Spaces Holy War&lt;/a&gt;
+&lt;/p&gt;
+&lt;/section&gt;
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code data-trim data-noescape class="language-html">
+&lt;section&gt;
+    &lt;h1&gt;Ceci est un titre&lt;/h1&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;strong&gt;PHP&lt;/strong&gt;, PSR &quot;Code MUST use 4 spaces for indenting, not tabs.&quot;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;JavaScript&lt;/strong&gt;, Prettier 2 espaces&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Python&lt;/strong&gt;, PEP8 &quot;Use 4 spaces per indentation level.&quot;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Linux kernel&lt;/strong&gt;, &lt;a href=&quot;https://www.kernel.org/doc/html/v4.10/process/coding-style.html&quot;&gt;8 espaces&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Golang&lt;/strong&gt;, Tab&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;Makefile&lt;/strong&gt;, Tab&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p class=&quot;small&quot;&gt;
+        &lt;a href=&quot;http://www.opimedia.be/DS/languages/tabs-vs-spaces/&quot;&gt;The Bible of Tabs vs Spaces Holy War&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/section&gt;
+        </code></pre>
+      </section>
+
+      <section>
+        <pre><code data-trim data-noescape class="language-javascript">
+for(let i = 0; i &lt; 8; i++) {
+for(let j =0; j &lt; 8; j++) {
+if((i + j) % 2 === 0) {
+console.log({i, j})
+}
+}
+}
+          </code></pre>
+      </section>
+
+      <section>
+        <pre><code data-trim data-noescape class="language-javascript">
+for(let i = 0; i &lt; 8; i++) {
+    for(let j =0; j &lt; 8; j++) {
+        if((i + j) % 2 === 0) {
+            console.log({i, j})
+        }
+    }
+}
+          </code></pre>
+      </section>
+
+      <section>
+        <h1>Les tabulations</h1>
+        <ul class="bare" style="margin-top: 1rem;">
+          <li class="fragment">✅ Un seul caractère "\t"</li>
+          <li class="fragment">❌ Le rendu varie</li>
+        </ul>
+      </section>
+
+      <section>
+        <figure>
+          <img src="/Slides/assets/mix-indent.webp" width="845" alt="">
+          <figcaption>Mélange Tab / Espace pour l'alignement</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h1>Les espaces</h1>
+        <ul class="bare" style="margin-top: 1rem;">
+          <li class="fragment">✅ Taille fixe (identation et alignement)</li>
+          <li class="fragment">✅ Identation et alignement</li>
+        </ul>
+      </section>
+
+      <section>
+        <figure>
+          <img src="/Slides/assets/indent-space.webp" width="845" alt="">
+          <figcaption>Espace pour l'alignement & Tabulation</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h1>Les espaces</h1>
+        <ul class="bare" style="margin-top: .8rem;">
+          <li>✅ Taille fixe</li>
+          <li>✅ Identation et alignement</li>
+          <li class="fragment">❌ Plusieurs caractères</li>
+          <li class="fragment">❌ Accessibilité</li>
+        </ul>
+      </section>
+
+      <section>
+        <figure>
+          <img src="/Slides/assets/braille.webp" width="845" alt="">
+          <figcaption>Plage braille (PHOTO: EMMANUEL BERROD)</figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <div class="rstack">
+
+        </div>
+        <h1>Quoi choisir ?</h1>
+      </section>
+
+      <section>
+      <figure>
+        <img src="/Slides/assets/dog-fights.webp" width="845" alt="">
+        <figcaption>Bataille Tab vs Espace</figcaption>
+      </figure>
+      </section>
+
+      <section>
+        <h1></h1>
+        <ul>
+          <li><strong>PHP</strong>, PSR "Code MUST use 4 spaces for indenting, not tabs."</li>
+          <li><strong>JavaScript</strong>, Prettier 2 espaces</li>
+          <li><strong>Python</strong>, PEP8 "Use 4 spaces per indentation level."</li>
+          <li><strong>Linux kernel</strong>, <a href="https://www.kernel.org/doc/html/v4.10/process/coding-style.html">8 espaces</a></li>
+          <li><strong>Golang</strong>, Tab</li>
+          <li><strong>Makefile</strong>, Tab</li>
+        </ul>
+        <p class="small">
+          <a href="http://www.opimedia.be/DS/languages/tabs-vs-spaces/">The Bible of Tabs vs Spaces Holy War</a>
+        </p>
+      </section>
+
+      <section  data-transition="slide" data-background-transition="slide" data-background-image="https://media1.giphy.com/media/H7kfFDvD9HSYGRbvid/giphy.gif?cid=790b7611f0fef81d3ee486c48483939c53c15b6d1c2c2a10&rid=giphy.gif&ct=g">
+      </section>
+    </div>
+  </div>
+</body>
+
+</html>

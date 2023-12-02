@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les frameworks JavaScripts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/monokai-sublime.min.css">
+  
+  <style>
+    :root body {
+      --primary: #f7df1e;
+      --secondary: rgb(220, 215, 210);
+      --background: #000;
+    }
+  </style>
+  <script type="module" crossorigin src="/Slides/modulepreload-polyfill.js"></script>
+  <script type="module" crossorigin src="/Slides/main.js"></script>
+  <link rel="stylesheet" href="/Slides/assets/main.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Pourquoi les librairies JS ?</h1>
+      </section>
+
+      <section>
+        <h2>La problématique</h2>
+      </section>
+
+      <section>
+        <h2>Synchroniser le DOM et l'état</h2>
+      </section>
+
+      <section>
+        <h2>Pourquoi autant de framework ?</h2>
+        <p>React, VueJS, Svelte, Angular, Preact, Solid...</p>
+      </section>
+
+      <section>
+        <h2>Un problème mais plusieurs solutions</h2>
+      </section>
+
+      <section>
+        <h2>Gestion de l'état</h2>
+      </section>
+
+      <section>
+          <h3>React, Preact</h3>
+          <p>Utilisation d'un setter</p>
+          <pre><code data-trim data-noescape class="language-js">
+          const [count, setCount] = useState(3);
+
+          const increment = () => {
+            setCount(v => v + 1);
+          }
+          const reset = () => {
+            setCount(0);
+          }
+        </code></pre>
+      </section>
+
+      <section>
+        <h3>Angular, Preact, Solid, VueJS</h3>
+        <p>Utilisation de signaux / observable</p>
+        <pre><code data-trim data-noescape class="language-js">
+          const count = signal(0);
+
+          const increment = () => {
+            count.update(v => v + 1)
+          }
+          const reset = () => {
+            count.set(0)
+          }
+          console.log("La valeur : " + count())
+        </code></pre>
+      </section>
+
+      <section>
+        <h3>Svelte</h3>
+        <p>Ajoute la détection à la compilation</p>
+        <pre><code data-trim data-noescape class="language-js">
+          let count = 0;
+
+          const increment = () => {
+            count++
+          }
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Réactivité (muter le DOM)</h2>
+      </section>
+
+      <section>
+        <h3>VirtualDOM</h3>
+        <p>React, Preact, VueJS</p>
+        <div class="r-stack">
+          <pre class="fade-out"><code data-trim data-noescape class="language-html">
+            &lt;div class="alert alert-info">Bonjour les gens&lt;/div>
+          </code></pre>
+          <pre class="fragment"><code data-trim data-noescape class="language-js">
+              h('div', {className: 'alert alert-info', children: 'Bonjour les gens'})
+        </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Muter le DOM</h3>
+        <p>Svelte, Angular, SolidJS</p>
+      </section>
+
+      <section>
+
+        <pre><code data-trim data-noescape class="language-js">
+p: function update(ctx, [dirty]) {
+    if (dirty & /*count*/ 1) set_data(t1, /*count*/ ctx[0]);
+
+    if (/*count*/ ctx[0] >= 10) {
+        if (if_block) {
+
+        } else {
+            if_block = create_if_block(ctx);
+            if_block.c();
+            if_block.m(if_block_anchor.parentNode, if_block_anchor);
+        }
+    } else if (if_block) {
+        if_block.d(1);
+        if_block = null;
+    }
+},
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Comment choisir ?</h2>
+      </section>
+
+      <section>
+        <h3>On peut en connaitre plusieurs</h3>
+        <ul class="text-secondary">
+          <li class="fragment">Facile à prendre en main</li>
+          <li class="fragment">Concepts sont similaires</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Cas d'utilisation</h2>
+        <p>Framework ou librairie ?</p>
+      </section>
+
+      <section>
+        <h2>Taux d'utilisation</h2>
+        <ul class="text-secondary">
+          <li class="fragment">Apprentissage</li>
+          <li class="fragment">Écosystème</li>
+          <li class="fragment">Emploi</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Préférences personnelles</h2>
+        <p>Pour comparer : <a href="https://component-party.dev/">component-party.dev</a></p>
+      </section>
+
+        <section>
+            <h2>À vous de jouer</h2>
+        </section>
+
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les tests</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+  
+  <style>
+    :root {
+      --primary: #f0f3ff;
+      --secondary: #8491c7;
+      --background: #171933;
+    }
+  </style>
+  <script type="module" crossorigin src="/Slides/modulepreload-polyfill.js"></script>
+  <script type="module" crossorigin src="/Slides/main.js"></script>
+  <link rel="stylesheet" href="/Slides/assets/main.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Les tests</h1><br/>
+        <p>JavaScript & React</p>
+      </section>
+
+      <section>
+        <figure>
+          <h1>Pyramide des tests</h1>
+          <ul>
+            <li>Tests unitaires (facile à mettre en place / rapide)</li>
+            <li>Tests d'intégration (facile à mettre en place / rapide)</li>
+            <li>Tests end to end (difficile à mettre en place / lent)</li>
+          </ul>
+        </figure>
+      </section>
+
+      <section>
+        <h1>Dans les faits</h1>
+        <div class="r-stack">
+          <p class="fragment fade-out" data-fragment-index="0">Les tests ne doivent pas être un frein</p>
+          <p class="fragment" data-fragment-index="0">Le principe du TDD (Test Driven Development)</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Tester une fonction</h2>
+      </section>
+
+      <section>
+        <h2>Tester un hook</h2>
+        <ul>
+          <li><a href="https://react-hooks-testing-library.com/">@testing-library/react-hooks</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tester un composant</h2>
+        <ul>
+          <li><a href="https://testing-library.com/docs/react-testing-library/intro/">@testing-library/react</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tester dans storybook</h2>
+        <ul>
+          <li><a href="https://storybook.js.org/docs/7.0/react/writing-tests/test-runner">Storybook test runner</a></li>
+          <li><a href="https://storybook.js.org/docs/react/writing-tests/interaction-testing">Pratique pour tester l'interaction</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Test end-to-end</h2>
+      </section>
+
+      <section>
+        <h2>Recommandations</h2>
+      </section>
+
+    </div>
+  </div>
+</body>
+
+</html>

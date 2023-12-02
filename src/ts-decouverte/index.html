@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TypeScript</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/tokyo-night-dark.min.css">
+  <style>
+    :root body {
+      --primary: #FFF;
+      --secondary: #EEEEEE;
+      --background: #3178c6;
+    }
+  </style>
+  <script type="module" crossorigin src="/Slides/modulepreload-polyfill.js"></script>
+  <script type="module" crossorigin src="/Slides/main.js"></script>
+  <link rel="stylesheet" href="/Slides/assets/main.css">
+</head>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <section>
+      <h1>TypeScript</h1>
+    </section>
+
+    <section>
+      <h2>Qui je suis ?</h2>
+      <ul class="text-secondary">
+        <li class="fragment">Jonathan Boyer</li>
+        <li class="fragment">Freelance full-stack</li>
+        <li class="fragment">Formateur : Grafikart.fr</li>
+      </ul>
+      <aside class="notes">
+        Temps : 1min
+      </aside>
+    </section>
+
+    <section>
+      <h1>Le JavaScript</h1>
+      <ul>
+        <li class="fragment">Langage de script pour le navigateur</li>
+        <li class="fragment">Typage faible</li>
+        <li class="fragment">Dynamique</li>
+        <li class="fragment">Évènementiel</li>
+      </ul>
+      <aside class="notes">
+        Temps : 2min
+      </aside>
+    </section>
+
+    <section>
+        <pre><code  data-trim data-noescape class="language-js">
+function main () {
+    const input = document.querySelector("input");
+    const result = document.querySelector('.result')
+
+    if (!input || !result) {
+        return;
+    }
+
+    input.addEventListener("input", function(event) {
+        const texte = input.value
+        result.innerText = texte.toUpperCase()
+    });
+}
+
+main();
+        </code></pre>
+    </section>
+
+    <section>
+      <h1>Défaut du JavaScript</h1>
+      <p class="fragment">Pas de type = Pas de documentation</p>
+      <aside class="notes">
+        Temps : 30sec
+      </aside>
+    </section>
+
+    <section>
+        <pre><code  data-trim data-noescape class="language-js">
+export function offsetTop(element, parent = null) {
+  let top = element.offsetTop;
+  while ((element = element.offsetParent)) {
+    if (parent === element) {
+      return top;
+    }
+    top += element.offsetTop;
+  }
+  return top;
+}
+        </code></pre>
+      <aside class="notes">
+        Temps : 0min
+      </aside>
+    </section>
+
+    <section>
+        <pre><code  data-trim data-noescape class="language-js">
+/**
+ * Trouve la position de l'élément
+ * par rapport au haut de la page
+ *
+ * @param {HTMLElement} element
+ * @param {HTMLElement|null} parent
+ */
+export function offsetTop(element, parent = null) {
+  return top;
+}
+        </code></pre>
+      <aside class="notes">
+        Temps : 0min
+      </aside>
+    </section>
+
+    <section>
+      <h1>Défaut du JavaScript</h1>
+      <p>Langage trop dynamique</p>
+      <aside class="notes">
+        Temps : 30sec
+      </aside>
+    </section>
+
+    <section>
+        <pre><code  data-trim data-noescape class="language-js">
+function addNumbers (a, b) {
+  return a + b
+}
+
+addNumbers(2, 3) // 5
+addNumbers(2, '3') // '23'
+        </code></pre>
+        <pre class="fragment"><code  data-trim data-noescape class="language-js">
+addNumbers(2, input.value)
+        </code></pre>
+      <aside class="notes">
+        Temps : 30sec
+      </aside>
+    </section>
+
+    <section>
+        <pre><code  data-trim data-noescape class="language-ts">
+function addNumbers (a: number, b: number): number {
+  return a + b
+}
+
+addNumbers(2, 3) // 5
+addNumbers(2, '3') // Erreur
+        </code></pre>
+      <aside class="notes">
+        Temps : 1sec
+      </aside>
+    </section>
+
+    <section>
+      <h1>Limitation du navigateur</h1>
+      <div>
+        <p class="fragment">
+          Ne supporte que le JavaScript
+        </p>
+        <p class="fragment">
+          Le code TypeScript doit être convertit en JavaScript
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h1>L'outil TypeScript</h1>
+      <ul>
+        <li class="fragment">
+          <strong>Transpiler :</strong> Retire les types du code
+        </li>
+        <li class="fragment">
+          <strong>Check :</strong> Vérifier le code
+        </li>
+      </ul>
+      <p class="fragment">
+        <strong>La vérification ne se fait pas à l'éxécution !</strong>
+      </p>
+      <aside class="notes">
+        Temps : 1min
+      </aside>
+    </section>
+
+    <section>
+      <h1>Vérification dans l'éditeur</h1>
+      <aside class="notes">
+        Temps : 1min
+      </aside>
+    </section>
+
+    <section>
+      <h1>Syntaxe</h1>
+      <h3>
+        Types de bases
+      </h3>
+      <pre><code  data-trim data-noescape class="language-ts">
+const k: number
+const name: string
+const isValid: boolean
+const v: null
+const items: string[]
+const cb: (n: number) => void
+        </code></pre>
+    </section>
+
+    <section>
+      <h1>Syntaxe</h1>
+      <h3>
+        Objets
+      </h3>
+      <pre><code  data-trim data-noescape class="language-ts">
+const person: {firstname: string, lastname?: string, age: number}
+const items: Record&lt;string, number>
+const arr: Array&lt;string>
+        </code></pre>
+    </section>
+
+    <section>
+      <h1>Syntaxe</h1>
+      <h3>
+        Type avec générique
+      </h3>
+      <pre><code  data-trim data-noescape class="language-ts">
+const a: Map&lt;string, number>
+const b: Promise&lt;string>
+        </code></pre>
+    </section>
+
+    <section>
+      <h1>Syntaxe</h1>
+      <h3>
+        Tuple
+      </h3>
+      <pre><code  data-trim data-noescape class="language-ts">
+const point: [number, number]
+        </code></pre>
+    </section>
+
+    <section>
+      <h1>Syntaxe</h1>
+      <h3>
+        Spéciaux
+      </h3>
+      <pre><code  data-trim data-noescape class="language-ts">
+never
+any
+unknown
+        </code></pre>
+    </section>
+
+    <section>
+      <h1>Alias</h1>
+      <pre><code  data-trim data-noescape class="language-ts">
+type Person = {firstname: string, lastname: string}
+
+const a: Person
+        </code></pre>
+      <aside class="notes">
+        Montrer l'exemple
+      </aside>
+    </section>
+
+    <section>
+      <h1>Cast</h1>
+      <pre><code  data-trim data-noescape class="language-ts">
+const a = ['hello']
+
+// Cast pour spécifier le type
+const a = [] as string[]
+const a: string[] = []
+        </code></pre>
+    </section>
+
+    <section>
+      <h1>Union</h1>
+      <pre><code  data-trim data-noescape class="language-ts">
+type Demo = string | number | null
+        </code></pre>
+    </section>
+
+    <section>
+      <h1>Intersection</h1>
+      <pre><code  data-trim data-noescape class="language-ts">
+type Person = {firstname: string, lastname: string}
+
+type AgedPerson = Person & {age: number}
+        </code></pre>
+    </section>
+
+    <section>
+      <h1>Inconvénients</h1>
+      <ul>
+        <li class="fragment">Outils supplémentaires</li>
+        <li class="fragment">Limite le dynamisme</li>
+        <li class="fragment">Breaking change</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Conclusion</h1>
+      <ul>
+        <li class="fragment">Moins d'erreurs</li>
+        <li class="fragment">Avantages > Inconvénients</li>
+        <li class="fragment">Bonne intégration</li>
+      </ul>
+    </section>
+  </div>
+</div>
+</body>
+
+</html>

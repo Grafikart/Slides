@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PHP mort</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
+  <style>
+    :root body {
+      --primary: #7a86b8;
+      --secondary: #FFF;
+      --background: #333;
+    }
+
+    .logo-wall {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      margin-inline: auto;
+    }
+  </style>
+  <script type="module" crossorigin src="/Slides/modulepreload-polyfill.js"></script>
+  <script type="module" crossorigin src="/Slides/main.js"></script>
+  <link rel="stylesheet" href="/Slides/assets/main.css">
+</head>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <section>
+      <p>La grande question</p>
+      <h1 style="margin-top: -30px;">PHP pertinent en 2023 ?</h1>
+      <aside class="notes">
+        Temps : 30s
+      </aside>
+    </section>
+
+    <section>
+      <h2>Qui je suis ?</h2>
+      <ul class="text-secondary">
+        <li class="fragment">Jonathan Boyer</li>
+        <li class="fragment">Freelance full-stack</li>
+        <li class="fragment">Formateur</li>
+      </ul>
+      <aside class="notes">
+        Temps : 1min
+      </aside>
+    </section>
+
+    <section>
+      <h2>La mode</h2>
+      <div class="logo-wall fragment">
+        <img src="/Slides/assets/node.svg" alt="" width="400">
+        <img src="/Slides/assets/nextjs.svg" alt="" width="400">
+        <img src="/Slides/assets/astro.svg" alt="" width="400">
+        <img src="/Slides/assets/remix.svg" alt="" width="400">
+      </div>
+      <aside class="notes">
+        Temps : 1min
+      </aside>
+    </section>
+
+    <section>
+      <h2>Pourquoi ces technologies ?</h2>
+      <ul class="text-secondary">
+        <li class="fragment">Front-end de plus en plus important</li>
+        <li class="fragment">Sites de plus en plus dynamique</li>
+        <li class="fragment">Variété des usages</li>
+        <li class="fragment">Séparation des équipes</li>
+      </ul>
+      <aside class="notes">
+        Temps : 2min
+      </aside>
+    </section>
+
+    <section>
+      <h2>Limites du front-end</h2>
+      <ul class="text-secondary">
+        <li class="fragment">Chargement initial lent</li>
+        <li class="fragment">Référencement (SEO)</li>
+      </ul>
+      <aside class="notes">
+        Temps : 1min 30
+      </aside>
+    </section>
+
+    <section>
+      <section data-auto-animate>
+        <h1>Server Side Rendering</h1>
+        <p>Générer les pages côté serveur</p>
+        <aside class="notes">
+          Temps : 1min30
+        </aside>
+      </section>
+
+      <section data-auto-animate data-background-image="img/mind-blowing.gif">
+        <h1>Server Side Rendering</h1>
+        <p>Générer les pages côté serveur</p>
+      </section>
+    </section>
+
+    <section>
+      <section data-auto-animate>
+        <h1>"Island"</h1>
+        <p>Seuls certains éléments sont interactif</p>
+        <aside class="notes">
+          Temps : 2min
+        </aside>
+      </section>
+      <section data-auto-animate>
+        <h1>"Island"</h1>
+        <p>Seuls certains éléments sont interactif</p>
+        <img src="/Slides/assets/island.png" alt="" height="900">
+      </section>
+      <section data-auto-animate>
+        <h1>"Island"</h1>
+        <p>Seuls certains éléments sont interactif</p>
+        <pre><code  class="language-js" data-trim data-noescape>
+      ---
+      // Example: Use a dynamic React component on the page.
+      import MyReactComponent from '../components/MyReactComponent.jsx';
+      ---
+          <!-- This component is now interactive on the page!
+               The rest of your website remains static and zero JS. -->
+      &lt;MyReactComponent client:load /></code></pre>
+      </section>
+      <section data-auto-animate>
+        <h1>"Island"</h1>
+        <p>On faisait déjà ça avant</p>
+        <pre><code data-trim data-noescape>
+&lt;div class="carousel"><!--  ...  --> &lt;/div>
+&lt;script>
+    $('.carousel').slick();
+&lt;/script>
+          </code></pre>
+      </section>
+
+      <section data-auto-animate>
+        <h1>"Island"</h1>
+        <p>Même exemple mais plus moderne</p>
+        <pre><code data-trim data-noescape>
+&lt;images-carousel><!-- ... -->&lt;/images-carousel>
+          </code></pre>
+      </section>
+    </section>
+
+    <section>
+      <h1>L'asynchrone</h1>
+      <ul class="text-secondary">
+        <li class="fragment">La logique est souvent séquentielle</li>
+        <li class="fragment">Les requêtes sont traitées en parallèles</li>
+        <li class="fragment">Les tâches longues sont gérées dans une file d'attente</li>
+      </ul>
+      <aside class="notes">
+        Temps : 2min
+      </aside>
+    </section>
+
+    <section>
+      <section data-auto-animate>
+        <h1>Serverless</h1>
+        <p>On éxecute le code, que lorsqu'il y a une requête HTTP</p>
+        <aside class="notes">
+          Temps : 3min
+        </aside>
+      </section>
+      <section data-auto-animate>
+        <h1>Serverless</h1>
+        <p>On éxecute le code, que lorsqu'il y a une requête HTTP</p>
+      <pre><code data-trim data-noescape>
+export const hello = (
+  event
+) => {
+  return {
+    statusCode: 200,
+    body: "Bonjour" + event.queryStringParameters.name,
+  };
+};
+</code></pre>
+      </section>
+      <section>
+              <h1>PHP-FPM fait déjà ça !</h1>
+              <pre><code data-trim data-noescape>
+&lt;?php
+echo "Bonjour " . $_GET['name'];
+</code></pre>
+              <p style="font-size: 0.8em;">Avec des bonnes performances grâce au <a href="https://www.php.net/manual/fr/opcache.preloading.php">preloading</a></p>
+      </section>
+    </section>
+
+    <section>
+      <h1>Et l'expérience utilisateur ?</h1>
+      <p class="fragment">
+        PHP seul ne suffit pas<br/>
+        Recharger les pages n'est pas idéal
+      </p>
+      <aside class="notes">
+        Temps : 30sec
+      </aside>
+    </section>
+
+    <section>
+      <h1>Turbo</h1>
+      <p>Ajaxifie tout un site <br/><a href="https://turbo.hotwired.dev/">turbo.hotwired.dev</a></p>
+      <aside class="notes">
+        Temps : 2min
+      </aside>
+    </section>
+
+    <section>
+      <h1>Unpoly</h1>
+      <p>Interaction client piloté par le serveur</p>
+    </section>
+
+    <section>
+      <h1>htmx</h1>
+      <p>Interaction client piloté par le serveur</p>
+    </section>
+
+    <section>
+      <h1>Alpine.js</h1>
+      <p>Rend l'HTML dynamique</p>
+
+      <aside class="notes">
+        <ul>
+          <li>x-data</li>
+          <li>x-model</li>
+          <li>x-show</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section>
+      <h1>Custom Element</h1>
+      <p>
+        Permet de créer des éléments HTML personnalisés<br/>
+        Preact, Svelte, Solid...
+      </p>
+    </section>
+
+    <section>
+      <h1>Livewire</h1>
+      <p>Comme React, mais le rendu est côté serveur</p>
+    </section>
+
+    <section>
+      <h1>Mercure</h1>
+      <p>Notification instantané</p>
+    </section>
+
+    <section>
+      <h1>Conclusion</h1>
+      <p>Question de perspective</p>
+    </section>
+
+
+  </div>
+</div>
+</body>
+
+</html>
