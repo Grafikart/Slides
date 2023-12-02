@@ -25,18 +25,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: true 
+          submodules: true
           fetch-depth: 0
 
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 19
+          node-version: 21
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
       - name: Get pnpm store directory
         id: pnpm-cache
@@ -54,17 +54,8 @@ jobs:
         run: pnpm install
       - name: Build pages
         run: pnpm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ./dist
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src/slides/dist

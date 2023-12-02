@@ -1,0 +1,9 @@
+http://slides.localhost:8000 {
+	handle_path /Slides/* {
+		root * src/slides/dist
+		file_server {
+			browse
+			precompressed zstd br gzip
+		}
+	}
+}
