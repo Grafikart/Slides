@@ -1,0 +1,18 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "model",
+      "targetTime": 1.097882030980327
+    },
+    {
+      "name": "controller",
+      "targetTime": 2.118900487794
+    },
+    {
+      "name": "vue",
+      "targetTime": 3.5332795888723143
+    }
+  ],
+  "seed": 2845519588
+}

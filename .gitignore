@@ -1,2 +1,14 @@
 node_modules
+mvcs
+
+# Editor directories and files
 .turbo
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
