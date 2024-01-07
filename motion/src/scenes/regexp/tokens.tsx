@@ -16,13 +16,14 @@ export default makeScene2D(function* (view) {
     console.log(colors)
 
     const codeRef = createRef<CodeBlock>()
-    const rectRef = createRef<Rect>()
+    const titleRef = createRef<Txt>()
     const highlightRef = createRef<HighlightedRefProps>()
 
     yield view.add(
         <>
             <Rect layout direction="column" width="90%" height="90%">
                 <Txt
+                    ref={titleRef}
                     marginBottom={40}
                     fontSize={30}
                     fontWeight={700}
@@ -46,14 +47,16 @@ export default makeScene2D(function* (view) {
     yield* codeRef().edit(duration, false)`/${insert(`tente`)}/`;
     yield* waitUntil('wordchange')
     yield* highlightRef().setContent('Je suis avec ma *tente*')
-    yield* waitUntil('hword')
+    yield* waitUntil('[ea]')
     yield* codeRef().edit(duration, false)`/t${edit(`e`, `[ea]`)}nte/`;
     yield* waitUntil('hcaracter')
     yield* highlightRef().setContent('Je suis avec ma *tante*')
+    yield* waitUntil('e|a')
+    yield* codeRef().edit(duration, false)`/t${remove('[')}e${insert('|')}a${remove(']')}nte/`;
 
     // Range
-    yield* waitUntil('hrange')
-    yield* codeRef().edit(duration, false)`/t[${edit(`ea`, `a-z`)}]nte/`;
+    yield* waitUntil('[a-z]')
+    yield* codeRef().edit(duration, false)`/t${insert('[')}${remove('e|')}a${insert("-z")}${insert(']')}nte/`;
     yield* waitUntil('hrange_example')
     yield* highlightRef().setContent('Je suis avec ma *tonte*')
 
@@ -67,23 +70,89 @@ export default makeScene2D(function* (view) {
      highlightRef().setContent('*J*e suis avec ma tante')
     )
 
-    yield* waitUntil('dot')
+    yield* waitUntil('.')
     yield* codeRef().edit(duration, false)`/${edit("[A-Za-z0-9]", ".")}/`
 
-    yield* waitUntil('number')
+    yield* waitUntil('\\d')
     yield* all(
         codeRef().edit(duration, false)`/${edit(".", "\\d")}/`,
         highlightRef().setContent("J'ai *2*5 ans")
     )
 
-    yield* waitUntil('w')
+    yield* waitUntil('[^"]')
     yield* all(
-        codeRef().edit(duration, false)`/${edit("\\d", "\\w")}/`,
-        highlightRef().setContent("*J*'ai 10 ans")
+        codeRef().edit(duration, false)`/${edit("\\d", "[^\"]")}/`,
+        highlightRef().setContent("*J*'ai 25 ans")
     )
 
-    // yield* (rectRef().children()[1] as Txt).fill('red', duration);
-    // yield* (rectRef().children()[1] as Txt).fill('blue', duration);
+    yield* waitUntil('quantifier')
+    yield* titleRef().text("Quantificateur", duration)
+
+    yield* waitUntil('{2}')
+    yield* all(
+        codeRef().edit(duration, false)`/\\d${insert("{2}")}/`,
+        highlightRef().setContent("J'ai *25* ans")
+    )
+    
+    yield* waitUntil('{1,2}')
+    yield* all(
+        codeRef().edit(duration, false)`/\\d{${insert("1,")}2}/`,
+        highlightRef().setContent("J'ai *25* ans")
+    )
+
+    yield* waitUntil('{1,}')
+    yield* all(
+        codeRef().edit(duration, false)`/\\d{1,${remove("2")}}/`,
+        highlightRef().setContent("J'ai *25* ans")
+    )
+
+    yield* waitUntil('*')
+    yield* all(
+        codeRef().edit(duration, false)`/\\d${edit("{1,}", "*")}/`,
+        highlightRef().setContent("J'ai *25* ans")
+    )
+
+    yield* waitUntil('+')
+    yield* all(
+        codeRef().edit(duration, false)`/\\d${edit("*", "+")}/`,
+        highlightRef().setContent("J'ai *25* ans")
+    )
+
+    yield* waitUntil('Drapeau')
+    yield* all(
+        titleRef().text("Drapeau", duration),
+        highlightRef().setContent("J'ai *25* ans et 12 mois")
+    )
+    yield* waitUntil('g')
+    yield* all(
+        codeRef().edit(duration, false)`/\\d+/${insert('g')}`,
+        highlightRef().setContent("J'ai *25* Ans et *12* mois")
+    )
+    yield* waitUntil('i')
+    yield* all(
+        codeRef().edit(duration, false)`/${edit('\\d+', 'ans')}/${edit('g','i')}`,
+        highlightRef().setContent("J'ai 25 *Ans* et 12 mois")
+    )
+    yield* waitUntil('gi')
+    yield* all(
+        codeRef().edit(duration, false)`/an/${edit('i','gi')}`,
+        highlightRef().setContent("J'aurais 25 *An*s l'*an*née prochaine")
+    )
+
+    yield* waitUntil('chien|chat')
+    yield* all(
+        titleRef().text("Groupe", duration),
+        codeRef().edit(duration, false)`/${insert('c')}${edit('an', 'h')}${insert('(ien|at)')}/gi`,
+        highlightRef().setContent("J'aimerais avoir un *chat* ou un *chien*")
+    )
+
+    yield* waitUntil('papa')
+    yield* all(
+        codeRef().edit(duration, false)`/${edit('ch(ien|at)', '(ma){2}')}/gi`,
+        highlightRef().setContent("Here is *mama*")
+    )
+
+
 })
 
 const BaseText = (props: TxtProps) => {

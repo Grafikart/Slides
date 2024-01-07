@@ -45,3 +45,72 @@
 
 - https://alf.nu/RegexGolf
 - https://regex101.com/quiz
+
+## Exemple
+
+### Sommaire 
+
+```md
+Voici une liste des invités
+
+- Madame Jane Doe née le 3 avril 2010
+- Monsieur John Doe née le 4 mars 1920
+- Madame Marion Dae née le 19 avril 1940
+```
+
+```md
+^\d{2}:\d{2} .*$
+Article ► https://grafikart.fr/tutoriels/figma-...
+
+00:00 Introduction
+00:17 L'interface
+00:59 Prototype
+02:00 Mode développeur
+03:40 Design système & styles
+07:00 Les composants
+11:55 Auto Layout
+
+Bienvenue dans cette vidéo où je vous propose de découvrir comment vous pouvez utiliser Figma en tant que développeur. L'objectif est de voir les points clés qu'il va falloir analyser lorsque l'on veut intégrer une maquette en HTML / CSS.
+```
+
+```
+(2[0-3]|[10]\d):([0-5][0-9])
+
+23:40
+10:60
+12:30
+08:20
+02:01
+```
+
+```
+(2[0-3]|[01]?\d):([0-5][0-9])
+
+23:40
+10:60
+12:30
+08:20
+02:01
+2:01
+```
+
+````
+^(?<protocol>https?):\/\/(?<domain>[^\/]+)(?<path>\/.*)$
+
+https://grafikart.fr/blog/demo-aze-3
+http://demo.grafikart.fr/blog/demo-aze-32
+```
+
+```
+"([^"]+)"
+
+<?php 
+echo "Ceci est une chaine de caractère";
+```
+
+```
+"([^"]+)"
+
+<?php 
+echo "Ceci est une chaine \"" de caractère";
+```

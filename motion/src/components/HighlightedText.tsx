@@ -33,7 +33,6 @@ export function HighlightedText({ ref }: {ref: Reference<HighlightedRefProps>}) 
                 rootRef().children().at(-1).opacity(1, 1)
             )
             rootRef().children().at(0).remove()
-            rootRef().children().at(0).position([0, 0])
         }
     })
 

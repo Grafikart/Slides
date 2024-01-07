@@ -14,16 +14,20 @@
       "targetTime": 2
     },
     {
-      "name": "hword",
-      "targetTime": 2.7
+      "name": "[ea]",
+      "targetTime": 3
     },
     {
       "name": "hcaracter",
       "targetTime": 3.7
     },
     {
-      "name": "hrange",
-      "targetTime": 4.4
+      "name": "e|a",
+      "targetTime": 5
+    },
+    {
+      "name": "[a-z]",
+      "targetTime": 6
     },
     {
       "name": "hrange_example",
@@ -38,16 +42,64 @@
       "targetTime": 7.4
     },
     {
-      "name": "dot",
-      "targetTime": 10
-    },
-    {
-      "name": "number",
+      "name": ".",
       "targetTime": 11
     },
     {
-      "name": "w",
+      "name": "\\d",
       "targetTime": 12
+    },
+    {
+      "name": "[^\"]",
+      "targetTime": 13
+    },
+    {
+      "name": "quantifier",
+      "targetTime": 13
+    },
+    {
+      "name": "{2}",
+      "targetTime": 13
+    },
+    {
+      "name": "{1,2}",
+      "targetTime": 14
+    },
+    {
+      "name": "{1,}",
+      "targetTime": 15
+    },
+    {
+      "name": "*",
+      "targetTime": 16
+    },
+    {
+      "name": "+",
+      "targetTime": 17
+    },
+    {
+      "name": "Drapeau",
+      "targetTime": 18
+    },
+    {
+      "name": "g",
+      "targetTime": 19
+    },
+    {
+      "name": "i",
+      "targetTime": 20
+    },
+    {
+      "name": "gi",
+      "targetTime": 21
+    },
+    {
+      "name": "chien|chat",
+      "targetTime": 23
+    },
+    {
+      "name": "papa",
+      "targetTime": 24
     }
   ],
   "seed": 2706368385
