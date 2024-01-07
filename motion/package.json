@@ -7,14 +7,14 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@motion-canvas/core": "^3.11.0",
-    "@motion-canvas/2d": "^3.11.0",
-    "@motion-canvas/ffmpeg": "^1.1.0"
+    "@motion-canvas/core": "^3.12.1",
+    "@motion-canvas/2d": "^3.12.4",
+    "@motion-canvas/ffmpeg": "^1.1.1"
   },
   "devDependencies": {
-    "@motion-canvas/ui": "^3.11.0",
-    "@motion-canvas/vite-plugin": "^3.11.0",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.4"
+    "@motion-canvas/ui": "^3.12.4",
+    "@motion-canvas/vite-plugin": "^3.12.3",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11"
   }
 }

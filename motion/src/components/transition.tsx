@@ -13,7 +13,7 @@ export function* slideUpAndClear(node: Layout, duration = 1) {
 export function* slideDown(node: Layout, duration = 1) {
     yield* all(
         node.opacity(1, duration),
-        node.height('100%', duration)
+        node.height(null, duration)
     )
 }
 

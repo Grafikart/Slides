@@ -1,4 +1,9 @@
 {
   "extends": "@motion-canvas/2d/tsconfig.project.json",
-  "include": ["src"]
+  "compilerOptions": {
+    "target": "ES2022"
+  },
+  "include": [
+    "src"
+  ]
 }

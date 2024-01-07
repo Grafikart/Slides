@@ -1,0 +1,54 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "delimiter",
+      "targetTime": 0
+    },
+    {
+      "name": "word",
+      "targetTime": 1
+    },
+    {
+      "name": "wordchange",
+      "targetTime": 2
+    },
+    {
+      "name": "hword",
+      "targetTime": 2.7
+    },
+    {
+      "name": "hcaracter",
+      "targetTime": 3.7
+    },
+    {
+      "name": "hrange",
+      "targetTime": 4.4
+    },
+    {
+      "name": "hrange_example",
+      "targetTime": 5.4
+    },
+    {
+      "name": "range+",
+      "targetTime": 5.800000000000001
+    },
+    {
+      "name": "casse",
+      "targetTime": 7.4
+    },
+    {
+      "name": "dot",
+      "targetTime": 10
+    },
+    {
+      "name": "number",
+      "targetTime": 11
+    },
+    {
+      "name": "w",
+      "targetTime": 12
+    }
+  ],
+  "seed": 2706368385
+}
