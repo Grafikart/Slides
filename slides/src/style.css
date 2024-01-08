@@ -2,6 +2,15 @@
   --primary: #d4dcff;
   --secondary: #8491c7;
   --background: #171933;
+  --green: #9DCC65;
+  --yellow: #E0AF65;
+  --orange: #FF9E;
+  --purple: #BA3C8C;
+  --pink: #F7768E;
+  --violet: #9D7CD8;
+  --violetLight: #BB9AF7;
+  --blue: #7AA2F7;
+  --azur:#0DB9D7;
 }
 
 * {
@@ -151,3 +160,17 @@ pre {
 .progress span {
   color: var(--secondary);
 }
+
+.green { color: var(--green); }
+.yellow { color: var(--yellow); }
+.orange { color: var(--orange); }
+.purple { color: var(--purple); }
+.pink { color: var(--pink); }
+.violet { color: var(--violet); }
+.violetLight { color: var(--violetLight); }
+.blue { color: var(--blue); }
+.azur { color: var(--azur); }
+.bold {
+  font-weight: bold;
+}
+

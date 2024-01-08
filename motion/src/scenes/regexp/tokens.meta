@@ -50,6 +50,10 @@
       "targetTime": 12
     },
     {
+      "name": "^$",
+      "targetTime": 13
+    },
+    {
       "name": "[^\"]",
       "targetTime": 13
     },
@@ -76,6 +80,10 @@
     {
       "name": "+",
       "targetTime": 17
+    },
+    {
+      "name": "?",
+      "targetTime": 20
     },
     {
       "name": "Drapeau",

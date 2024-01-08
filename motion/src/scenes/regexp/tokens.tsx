@@ -32,9 +32,10 @@ export default makeScene2D(function* (view) {
                 >
                     Symboles
                 </Txt>
-                <Rect height="100%" width="100%" alignItems="center" direction="column" justifyContent="center" gap={100}>
-                    <CodeBlock ref={codeRef} fontSize={fontSize} language="regexp" code="aze" />,
-                    <HighlightedText ref={highlightRef} />
+                <Rect height="100%" width="100%" alignItems="center" direction="column" justifyContent="center"
+                      gap={100}>
+                    <CodeBlock ref={codeRef} fontSize={fontSize} language="regexp" code="aze"/>,
+                    <HighlightedText ref={highlightRef}/>
                 </Rect>
             </Rect>
         </>
@@ -62,12 +63,14 @@ export default makeScene2D(function* (view) {
 
     // Range+
     yield* waitUntil('range+')
-    yield* codeRef().edit(duration, false)`/${remove("t")}[a-z${insert(`0-9`)}]${remove("nte")}/`;
-    yield* highlightRef().setContent('J*e* suis avec ma tante')
+    yield* all(
+        codeRef().edit(duration, false)`/${remove("t")}[a-z${insert(`0-9`)}]${remove("nte")}/`,
+        highlightRef().setContent('J*e* suis avec ma tante')
+    )
     yield* waitUntil('casse')
     yield* all(
-     codeRef().edit(duration, false)`/[${insert(`A-Z`)}a-z0-9]/`,
-     highlightRef().setContent('*J*e suis avec ma tante')
+        codeRef().edit(duration, false)`/[${insert(`A-Z`)}a-z0-9]/`,
+        highlightRef().setContent('*J*e suis avec ma tante')
     )
 
     yield* waitUntil('.')
@@ -79,9 +82,15 @@ export default makeScene2D(function* (view) {
         highlightRef().setContent("J'ai *2*5 ans")
     )
 
+    yield* waitUntil('^$')
+    yield* all(
+        codeRef().edit(duration, false)`/${insert("^")}\\d${insert("$")}/`,
+        highlightRef().setContent("J'ai 25 ans")
+    )
+
     yield* waitUntil('[^"]')
     yield* all(
-        codeRef().edit(duration, false)`/${edit("\\d", "[^\"]")}/`,
+        codeRef().edit(duration, false)`/${remove("^")}${edit("\\d", "[^\"]")}${remove("$")}/`,
         highlightRef().setContent("*J*'ai 25 ans")
     )
 
@@ -93,7 +102,7 @@ export default makeScene2D(function* (view) {
         codeRef().edit(duration, false)`/\\d${insert("{2}")}/`,
         highlightRef().setContent("J'ai *25* ans")
     )
-    
+
     yield* waitUntil('{1,2}')
     yield* all(
         codeRef().edit(duration, false)`/\\d{${insert("1,")}2}/`,
@@ -115,6 +124,11 @@ export default makeScene2D(function* (view) {
     yield* waitUntil('+')
     yield* all(
         codeRef().edit(duration, false)`/\\d${edit("*", "+")}/`,
+    )
+
+    yield* waitUntil('?')
+    yield* all(
+        codeRef().edit(duration, false)`/\\d${edit("+", "?")}/`,
         highlightRef().setContent("J'ai *25* ans")
     )
 
@@ -130,12 +144,12 @@ export default makeScene2D(function* (view) {
     )
     yield* waitUntil('i')
     yield* all(
-        codeRef().edit(duration, false)`/${edit('\\d+', 'ans')}/${edit('g','i')}`,
+        codeRef().edit(duration, false)`/${edit('\\d+', 'ans')}/${edit('g', 'i')}`,
         highlightRef().setContent("J'ai 25 *Ans* et 12 mois")
     )
     yield* waitUntil('gi')
     yield* all(
-        codeRef().edit(duration, false)`/an/${edit('i','gi')}`,
+        codeRef().edit(duration, false)`/an/${edit('i', 'gi')}`,
         highlightRef().setContent("J'aurais 25 *An*s l'*an*née prochaine")
     )
 
@@ -161,7 +175,7 @@ const BaseText = (props: TxtProps) => {
         marginBottom={40}
         fontSize={60}
         fill={'rgba(217,217,217,0.6)'}
-         fontFamily={'"JetBrains Mono", monospace'}
+        fontFamily={'"JetBrains Mono", monospace'}
         {...props}
     />
 }

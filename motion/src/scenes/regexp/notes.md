@@ -55,7 +55,14 @@ Voici une liste des invités
 
 - Madame Jane Doe née le 3 avril 2010
 - Monsieur John Doe née le 4 mars 1920
-- Madame Marion Dae née le 19 avril 1940
+- Madame Marion Dae né pendant la tempête du 19 avril 1940
+```
+
+````
+^(?<protocol>https?):\/\/(?<domain>[^\/]+)(?<path>\/.*)$
+
+https://grafikart.fr/blog/demo-aze-3
+http://demo.grafikart.fr/blog/demo-aze-32
 ```
 
 ```md
@@ -94,13 +101,6 @@ Bienvenue dans cette vidéo où je vous propose de découvrir comment vous pouve
 2:01
 ```
 
-````
-^(?<protocol>https?):\/\/(?<domain>[^\/]+)(?<path>\/.*)$
-
-https://grafikart.fr/blog/demo-aze-3
-http://demo.grafikart.fr/blog/demo-aze-32
-```
-
 ```
 "([^"]+)"
 
@@ -109,7 +109,7 @@ echo "Ceci est une chaine de caractère";
 ```
 
 ```
-"([^"]+)"
+(["'])(?:\\.|[^\\])*?\1
 
 <?php 
 echo "Ceci est une chaine \"" de caractère";
