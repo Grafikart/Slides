@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Symfony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script type="module" src="../main.ts" defer></script>
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
+    <style>
+        :root body {
+            --primary: #000;
+            --secondary: rgb(101, 107, 115);
+            --background: #FFF;
+        }
+
+        .cube {
+            position: fixed;
+            width: 50px;
+            height: auto;
+            animation: cube 6s infinite ease-in-out;
+            color: rgb(59, 130, 246);
+        }
+
+        .cube:nth-child(1) {
+            top: 20%;
+            left: 10%;
+        }
+
+        .cube:nth-child(2) {
+            bottom: 10%;
+            right: 25%;
+            animation-delay: -3s;
+            width: 75px;
+        }
+
+        .cube:nth-child(3) {
+            top: 5%;
+            right: 2%;
+            animation-delay: -2s;
+            width: 60px;
+        }
+
+        .cube:nth-child(4) {
+            bottom: 7%;
+            left: 14%;
+            animation-delay: -4s;
+            width: 50px;
+        }
+
+        .logo {
+            position: fixed;
+            transform: translate(-30%, -30%);
+            width: 100%;
+            height: auto;
+            opacity: 0.05;
+        }
+
+        @keyframes cube {
+            50% {
+                transform: translateY(1rem);
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="decorations">
+    <svg class="cube" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512">
+        <path d="M256,160c16-63.16,76.43-95.41,208-96a15.94,15.94,0,0,1,16,16V368a16,16,0,0,1-16,16c-128,0-177.45,25.81-208,64-30.37-38-80-64-208-64-9.88,0-16-8.05-16-17.93V80A15.94,15.94,0,0,1,48,64C179.57,64.59,240,96.84,256,160Z"
+              style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path>
+        <line x1="256" y1="160" x2="256" y2="448"
+              style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></line>
+    </svg>
+    <svg class="cube" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512">
+        <path d="M434.8,137.65,285.44,69.55c-16.19-7.4-42.69-7.4-58.88,0L77.3,137.65c-17.6,8-17.6,21.09,0,29.09l148,67.5c16.89,7.7,44.69,7.7,61.58,0l148-67.5C452.4,158.74,452.4,145.64,434.8,137.65Z"
+              style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path>
+        <path d="M160,308.52,77.3,345.63c-17.6,8-17.6,21.1,0,29.1l148,67.5c16.89,7.69,44.69,7.69,61.58,0l148-67.5c17.6-8,17.6-21.1,0-29.1l-79.94-38.47"
+              style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path>
+        <path d="M160,204.48,77.2,241.64c-17.6,8-17.6,21.1,0,29.1l148,67.49c16.89,7.7,44.69,7.7,61.58,0l148-67.49c17.7-8,17.7-21.1.1-29.1L352,204.48"
+              style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"></path>
+    </svg>
+    <svg class="cube" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512">
+        <rect x="32" y="96" width="64" height="368" rx="16" ry="16"
+              style="fill:none;stroke:currentColor;stroke-linejoin:round;stroke-width:32px"/>
+        <path style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"
+              d="M112 224h128M112 400h128"/>
+        <rect x="112" y="160" width="128" height="304" rx="16" ry="16"
+              style="fill:none;stroke:currentColor;stroke-linejoin:round;stroke-width:32px"/>
+        <rect x="256" y="48" width="96" height="416" rx="16" ry="16"
+              style="fill:none;stroke:currentColor;stroke-linejoin:round;stroke-width:32px"/>
+        <path d="m422.5 96.1-40.4 4.3a20.7 20.7 0 0 0-18 23l35 321.6a20.9 20.9 0 0 0 22.4 18.9l40.4-4.3a20.7 20.7 0 0 0 18-23L445 115a21 21 0 0 0-22.5-18.9Z"
+              style="fill:none;stroke:currentColor;stroke-linejoin:round;stroke-width:32px"/>
+    </svg>
+    <svg class="cube" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 512 512">
+        <path d="M461.81 53.81a4.4 4.4 0 0 0-3.3-3.39c-54.38-13.3-180 34.09-248.13 102.17a294.9 294.9 0 0 0-33.09 39.08c-21-1.9-42-.3-59.88 7.5-50.49 22.2-65.18 80.18-69.28 105.07a9 9 0 0 0 9.8 10.4l81.07-8.9a180.29 180.29 0 0 0 1.1 18.3 18.15 18.15 0 0 0 5.3 11.09l31.39 31.39a18.15 18.15 0 0 0 11.1 5.3 179.91 179.91 0 0 0 18.19 1.1l-8.89 81a9 9 0 0 0 10.39 9.79c24.9-4 83-18.69 105.07-69.17 7.8-17.9 9.4-38.79 7.6-59.69a293.91 293.91 0 0 0 39.19-33.09c68.38-68 115.47-190.86 102.37-247.95ZM298.66 213.67a42.7 42.7 0 1 1 60.38 0 42.65 42.65 0 0 1-60.38 0Z"
+              style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/>
+        <path d="M109.64 352a45.06 45.06 0 0 0-26.35 12.84C65.67 382.52 64 448 64 448s65.52-1.67 83.15-19.31A44.73 44.73 0 0 0 160 402.32"
+              style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/>
+    </svg>
+    <svg class="logo" width="113" height="113" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M112.951 56.448C112.951 87.424 87.842 112.535 56.867 112.535C25.894 112.535 0.786011 87.424 0.786011 56.448C0.786011 25.477 25.893 0.369019 56.867 0.369019C87.842 0.369019 112.951 25.477 112.951 56.448Z"
+              fill="black"/>
+        <path d="M81.389 21.119C75.692 21.314 70.719 24.459 67.016 28.799C62.916 33.564 60.192 39.21 58.225 44.979C54.711 42.097 52.002 38.368 46.361 36.746C42.002 35.493 37.425 36.009 33.215 39.145C31.223 40.634 29.848 42.883 29.195 45.004C27.503 50.502 30.973 55.4 32.549 57.155L35.996 60.846C36.705 61.571 38.418 63.459 37.58 66.165C36.68 69.112 33.129 71.015 29.488 69.896C27.861 69.397 25.525 68.186 26.049 66.483C26.264 65.784 26.764 65.258 27.033 64.662C27.277 64.141 27.396 63.755 27.471 63.522C28.136 61.353 27.226 58.528 24.901 57.809C22.73 57.143 20.51 57.671 19.649 60.464C18.672 63.638 20.192 69.399 28.33 71.905C37.865 74.84 45.927 69.646 47.072 62.879C47.793 58.64 45.877 55.487 42.371 51.438L39.512 48.275C37.782 46.546 37.188 43.598 38.979 41.333C40.491 39.421 42.643 38.607 46.17 39.565C51.32 40.961 53.613 44.534 57.441 47.416C55.863 52.603 54.828 57.808 53.894 62.475L53.32 65.956C50.584 80.308 48.494 88.191 43.064 92.716C41.97 93.495 40.406 94.659 38.05 94.743C36.812 94.78 36.413 93.929 36.396 93.557C36.369 92.692 37.099 92.293 37.584 91.905C38.311 91.509 39.408 90.852 39.332 88.749C39.254 86.265 37.195 84.11 34.221 84.208C31.992 84.283 28.596 86.379 28.724 90.219C28.855 94.186 32.551 97.157 38.125 96.969C41.104 96.867 47.758 95.657 54.313 87.864C61.944 78.929 64.079 68.689 65.685 61.193L67.478 51.296C68.47 51.415 69.537 51.496 70.695 51.524C80.199 51.725 84.951 46.804 85.023 43.222C85.072 41.055 83.603 38.92 81.544 38.971C80.073 39.012 78.224 39.993 77.782 42.028C77.346 44.023 80.805 45.826 78.102 47.581C76.182 48.823 72.741 49.697 67.893 48.988L68.774 44.116C70.573 34.878 72.792 23.516 81.21 23.238C81.825 23.209 84.067 23.264 84.12 24.75C84.134 25.243 84.011 25.373 83.431 26.507C82.839 27.391 82.617 28.147 82.646 29.011C82.726 31.367 84.519 32.919 87.117 32.829C90.59 32.713 91.586 29.333 91.529 27.596C91.383 23.511 87.08 20.931 81.389 21.119Z"
+              fill="white"/>
+    </svg>
+</div>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <p>Découverte du framework</p>
+            <h1 style="margin-top: -30px;">Symfony</h1>
+        </section>
+
+        <section>
+            <h2>Présentation</h2>
+            <ul class="text-secondary">
+                <li class="fragment">Framework PHP (Cadre de travail)</li>
+                <li class="fragment">MVC (model view controller)</li>
+                <li class="fragment">Version 7</li>
+                <li class="fragment">PHP 8.2</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Programme</h2>
+            <ul class="text-secondary">
+                <li class="fragment">Tour d'horizon du framework</li>
+                <li class="fragment">Mise en pratique (création d'un blog)</li>
+                <li class="fragment">Approfondissement (Service Container, Voter, Event...)</li>
+                <li class="fragment">Travaux Pratiques</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Prérequis</h2>
+            <ul class="text-secondary">
+                <li class="fragment">Savoir utiliser le terminal</li>
+                <li class="fragment">Savoir utiliser Composer</li>
+                <li class="fragment">Comprendre SQL (requêtes de base, liaisons...)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>C'est parti !</h2>
+        </section>
+
+    </div>
+</div>
+</body>
+
+</html>
