@@ -2,6 +2,7 @@ export const colors = {
     text: '#C0CAF5',
     textLight: '#5D6791',
     bg: '#1A1B26',
+    bgLight: '#2c2e3d',
     green: '#9DCC65',
     yellow: '#E0AF65',
     orange: '#FF9E',
@@ -11,5 +12,4 @@ export const colors = {
     violetLight: '#BB9AF7',
     blue: '#7AA2F7',
     azur:'#0DB9D7',
-
 }

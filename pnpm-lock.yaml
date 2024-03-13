@@ -15,27 +15,27 @@ importers:
   motion:
     dependencies:
       '@motion-canvas/2d':
-        specifier: ^3.12.4
-        version: 3.12.4
+        specifier: ^3.14.2
+        version: 3.14.2
       '@motion-canvas/core':
-        specifier: ^3.12.1
-        version: 3.12.1
+        specifier: ^3.14.1
+        version: 3.14.1
       '@motion-canvas/ffmpeg':
         specifier: ^1.1.1
-        version: 1.1.1(@motion-canvas/core@3.12.1)(@motion-canvas/vite-plugin@3.12.3)(vite@5.0.11)
+        version: 1.1.1(@motion-canvas/core@3.14.1)(@motion-canvas/vite-plugin@3.14.1)(vite@5.1.4)
     devDependencies:
       '@motion-canvas/ui':
-        specifier: ^3.12.4
-        version: 3.12.4
+        specifier: ^3.14.2
+        version: 3.14.2
       '@motion-canvas/vite-plugin':
-        specifier: ^3.12.3
-        version: 3.12.3(vite@5.0.11)
+        specifier: ^3.14.1
+        version: 3.14.1(vite@5.1.4)
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
       vite:
-        specifier: ^5.0.11
-        version: 5.0.11
+        specifier: ^5.1.4
+        version: 5.1.4
 
   slides:
     dependencies:
@@ -657,22 +657,22 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@motion-canvas/2d@3.12.4:
-    resolution: {integrity: sha512-1Zi5slJ0VYExr5ZsEFIFH0immT8Fxipijpr8Xt8115JbZ33Rsm1btcaNY4ij49yhbJiMk9hqItmRusn7OWqDRg==}
+  /@motion-canvas/2d@3.14.2:
+    resolution: {integrity: sha512-SaOU0gL9RjUsIRCwNwPo/DLvcLKNPfVylfUcynSocOE6bSjsHrd8ZVNumf4X9Bedf9dxajrWf44eMBNCLQpJyg==}
     dependencies:
-      '@motion-canvas/core': 3.12.1
+      '@motion-canvas/core': 3.14.1
       code-fns: 0.8.2
       mathjax-full: 3.2.2
       parse-svg-path: 0.1.2
     dev: false
 
-  /@motion-canvas/core@3.12.1:
-    resolution: {integrity: sha512-wGr50/9+x5XFiU9VghOFCDiDeWiINL7pW+m9yGGrle6MF7QrkQMpIC+jIw9zHy2ioj32qQKhebyGixKAmx4mKA==}
+  /@motion-canvas/core@3.14.1:
+    resolution: {integrity: sha512-1rEys/mOa1WwUttAeHOQwDoLDcVNsFhNIO6YDVTzEGWYMGhHavEsVWdWD8YaDRbBkcHwd1uLKtIahyjERzBnjw==}
     dependencies:
       '@types/chroma-js': 2.4.3
       chroma-js: 2.4.2
 
-  /@motion-canvas/ffmpeg@1.1.1(@motion-canvas/core@3.12.1)(@motion-canvas/vite-plugin@3.12.3)(vite@5.0.11):
+  /@motion-canvas/ffmpeg@1.1.1(@motion-canvas/core@3.14.1)(@motion-canvas/vite-plugin@3.14.1)(vite@5.1.4):
     resolution: {integrity: sha512-w2d7oFfR3hYHXeYtFGoHp6goY+vVL0LoZ2h1b/veTH5KvE7jrLp2Kl/XPHsYJ5ZDRHUT0Nhl05DBLdXYqdSqgg==}
     peerDependencies:
       '@motion-canvas/core': ^3.7.0
@@ -681,29 +681,30 @@ packages:
     dependencies:
       '@ffmpeg-installer/ffmpeg': 1.1.0
       '@ffprobe-installer/ffprobe': 2.1.2
-      '@motion-canvas/core': 3.12.1
-      '@motion-canvas/vite-plugin': 3.12.3(vite@5.0.11)
+      '@motion-canvas/core': 3.14.1
+      '@motion-canvas/vite-plugin': 3.14.1(vite@5.1.4)
       fluent-ffmpeg: 2.1.2
-      vite: 5.0.11
+      vite: 5.1.4
     dev: false
 
-  /@motion-canvas/ui@3.12.4:
-    resolution: {integrity: sha512-bP0dvAVu5FiBxU0aOEU/+PHt/DUtkO40xnoxZ763gtKfft4bLh8iYK4jzti+nYs4nbVZjHdxFoSUXoioH9nfAA==}
+  /@motion-canvas/ui@3.14.2:
+    resolution: {integrity: sha512-5KujeAd+cE88ZTLlnAzvSkKvRx87z/NhBYZo5PLIls2+Z/LdllEvhiEaZfGJuXz8ZZ0f93osDrQmlpB4LI+V7Q==}
     dependencies:
-      '@motion-canvas/core': 3.12.1
+      '@motion-canvas/core': 3.14.1
       '@preact/signals': 1.2.2(preact@10.19.3)
       preact: 10.19.3
     dev: true
 
-  /@motion-canvas/vite-plugin@3.12.3(vite@5.0.11):
-    resolution: {integrity: sha512-Vg8azmsfolDVAbM8lS3f83DlF07HhRy5CKwI2Dqw23A3KoFqEai4F4OZbetlGP6/FqAQtw7h3e9SQjDwXkXQFg==}
+  /@motion-canvas/vite-plugin@3.14.1(vite@5.1.4):
+    resolution: {integrity: sha512-INkDrLmGRLwXlVrHSo7LMbORimYkxlE2DnBnuRdkHF6JeTxeUU+KtHTSW+vTg55cwEz2UykIIW2Tc0KicOU11Q==}
     peerDependencies:
       vite: 4.x || 5.x
     dependencies:
       fast-glob: 3.3.2
       follow-redirects: 1.15.3
       mime-types: 2.1.35
-      vite: 5.0.11
+      source-map: 0.6.1
+      vite: 5.1.4
     transitivePeerDependencies:
       - debug
 
@@ -1467,6 +1468,15 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: true
+
+  /postcss@8.4.35:
+    resolution: {integrity: sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
 
   /preact@10.19.3:
     resolution: {integrity: sha512-nHHTeFVBTHRGxJXKkKu5hT8C/YWBkPso4/Gad6xuj5dbptt9iF9NZr9pHbPhBrnT2klheu7mHTxTZ/LjwJiEiQ==}
@@ -1543,6 +1553,10 @@ packages:
 
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
+    engines: {node: '>=0.10.0'}
+
+  /source-map@0.6.1:
+    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
   /speech-rule-engine@4.0.7:
@@ -1731,8 +1745,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vite@5.0.11:
-    resolution: {integrity: sha512-XBMnDjZcNAw/G1gEiskiM1v6yzM4GE5aMGvhWTlHAYYhxb7S3/V1s3m2LDHa8Vh6yIWYYB0iJwsEaS523c4oYA==}
+  /vite@5.1.4:
+    resolution: {integrity: sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -1760,7 +1774,7 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.19.11
-      postcss: 8.4.32
+      postcss: 8.4.35
       rollup: 4.9.4
     optionalDependencies:
       fsevents: 2.3.3
