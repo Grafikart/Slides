@@ -6,7 +6,6 @@ import Highlight from "reveal.js/plugin/highlight/highlight.esm.js";
 import Markdown from "reveal.js/plugin/markdown/markdown.esm.js";
 import Notes from "reveal.js/plugin/notes/notes.esm.js";
 
-
 const initReveal = () => {
   let deck = new Reveal({
     plugins: [Highlight, Markdown, Notes],
@@ -22,7 +21,7 @@ const initReveal = () => {
     hash: true,
     // disableLayout: true,
     transition,
-    display: "flex",
+    display: "flex"
   });
 }
 

@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css">
   <script type="module" src="../main.ts" defer></script>
   <style>
     :root body {
@@ -18,6 +19,9 @@
     .reveal-viewport {
       background: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), url(./ruby_logo.svg) #FFF bottom -150px left -120px / 800px 800px no-repeat!important;
     }
+    .hljs {
+      background: rgba(255,255,255, 0.6);
+    }
   </style>
 </head>
 
@@ -26,7 +30,7 @@
   <div class="slides">
 
     <section class="first-slide">
-      <h1 class="text-secondary">Pourquoi j'ai arrété d'utiliser <br/><span class="text-primary">Ruby on rails</span></h1>
+      <h1 class="text-secondary">Pourquoi je ne parle plus de <br/><span class="text-primary">Ruby on rails</span></h1>
     </section>
 
     <section>
@@ -44,9 +48,7 @@
         <li class="fragment">Passage sur Linux<span class="text-primary"> (2013)</span></li>
         <li class="fragment">Re-découverte de Ruby<span class="text-primary"> (2013) ❤️</span></li>
         <li class="fragment">Premiers projets pro avec Rails <span class="text-primary">(2014)</span></li>
-        <li class="fragment">Migration de Grafikart vers Rails <span class="text-primary">(2020)</span></li>
-        <li class="fragment">PHP 7.4<span class="text-primary">(2019)</span></li>
-        <li class="fragment">Migration de Grafikart vers Symfony <span class="text-primary">(2020)</span></li>
+        <li class="fragment">Migration de Grafikart vers Rails <span class="text-primary">(2015)</span></li>
       </ul>
     </section>
 
@@ -56,12 +58,14 @@
         Le <span class="text-primary">duck typing</span> ne me suffit pas
       </p>
 
-      <pre><code data-trim data-noescape>
+      <pre><code data-trim data-noescape class="language-ruby">
 def maMethode (file)
    raise TypeError unless file.respond_to?(:read)
    # Le code...
 end
       </code></pre>
+
+      
     </section>
 
       <section>
@@ -70,7 +74,7 @@ end
               Un même type peut être différent suivant les environnements
           </p>
 
-          <pre><code data-trim data-noescape>
+          <pre><code data-trim data-noescape class="language-ruby">
 class Integer
 
   def double
@@ -89,7 +93,7 @@ puts 2.double
               Impossible d'avoir une analyse statique
           </p>
 
-          <pre><code data-trim data-noescape>
+          <pre><code data-trim data-noescape class="language-ruby">
 class EmailContact
   include ActiveModel::API
 
