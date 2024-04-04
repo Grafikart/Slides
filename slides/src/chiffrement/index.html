@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les frameworks JavaScripts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script type="module" src="/src/main.ts" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    :root body {
+      --primary: #36ba01;
+      --secondary: rgb(220, 215, 210);
+      --background: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Comment sécuriser l'information</h1>
+      </section>
+
+        <section>
+            <h1>Plusieurs approches</h1>
+            <ul class="text-secondary" style="font-size: 1.3rem;">
+                <li class="fragment">Hachage</li>
+                <li class="fragment">Chiffrement</li>
+                <li class="fragment">Signature</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Hachage</h1>
+            <p style="font-size: 1.3rem;">Impossible à inverser</p>
+        </section>
+
+        <section data-auto-animate>
+            <h2 class="text-secondary text-mono">Bonjour les gens&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        </section>
+
+        <section data-auto-animate>
+            <h2 class="text-secondary text-mono">Bonjour les gens&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <h2 class="text-mono">babbaababaaabaabaaaa</h2>
+        </section>
+
+        <section data-auto-animate>
+            <h2 class="text-secondary text-mono" style="opacity: 0;">Bonjour les gens&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <h2 class="text-mono">babbaababaaabaabaaaa</h2>
+        </section>
+
+        <section data-auto-animate>
+            <h2 class="text-secondary text-mono">japtuonajaailairuioe</h2>
+            <h2 class="text-mono">babbaababaaabaabaaaa</h2>
+        </section>
+
+        <section>
+            <h2>Spécificités</h2>
+            <ul class="text-secondary" style="font-size: 1.2rem;">
+                <li>Peu de collision</li>
+                <li>Taille fixe</li>
+                <li>md5, sha1, bcrypt, argon2</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Chiffrement</h1>
+            <p style="font-size: 1.3rem;">Réversible</p>
+        </section>
+
+        <section data-auto-animate>
+            <h2 class="text-secondary text-mono">Bonjour les gens</h2>
+        </section>
+
+        <section data-auto-animate>
+            <h2 class="text-secondary text-mono">Bonjour les gens</h2>
+            <h2 class="text-mono">Cpokpvs mft hfot</h2>
+        </section>
+
+        <section>
+            <h2>Spécificités</h2>
+            <ul class="text-secondary" style="font-size: 1.2rem;">
+                <li>Réversible</li>
+                <li>Utilise des clefs (symétrique ou asymétrique)</li>
+                <li>AES, RSA</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Signature</h1>
+            <p style="font-size: 1.3rem;">Combine les 2 approches</p>
+        </section>
+
+        <section data-auto-animate>
+            <h2 class="text-secondary text-mono">Bonjour les gens&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+        </section>
+
+        <section data-auto-animate>
+            <h2 class="text-secondary text-mono">Bonjour les gens&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <h2 class="text-mono">babbaababaaabaabaaaa</h2>
+        </section>
+
+        <section data-auto-animate>
+            <h2 class="text-secondary text-mono">Bonjour les gens&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+            <h2 class="text-mono" style="opacity: .3;">babbaababaaabaabaaaa</h2>
+            <h2 class="text-mono">cbccbbcbcbbbcbbcbbbb</h2>
+        </section>
+
+        <section>
+            <h1>Usages</h1>
+        </section>
+
+        <section>
+            <h1>Hachage</h1>
+            <ul class="bigger text-secondary">
+                <li>Vérifier l'intégrité d'un fichier</li>
+                <li class="fragment">Vérifier un mot de passe</li>
+            </ul>
+            <aside class="notes">
+                Exemple de clef : https://archlinux.org/download/
+                Préparer un exemple
+            </aside>
+        </section>
+
+        <section>
+            <h2>Vérifier un mot de passe</h2>
+            <div class="bigger">
+                <p class="text-mono fragment">123456</p>
+                <p class="text-mono fragment text-primary">$argon2i$v=19$m=4096,t=3,p=1$c2FsdEl0V2l0aFNhbHQ$heOptJhl...</p>
+            </div>
+        </section>
+
+        <section data-auto-animate>
+            <h1>Chiffrement</h1>
+        </section>
+
+        <section data-auto-animate>
+            <h1>Chiffrement</h1>
+            <ul class="bigger text-secondary">
+                <li>Sécuriser le transfert d'information (HTTPS)</li>
+                <li class="fragment">Sauvegarder des fichiers sensibles</li>
+            </ul>
+            <aside class="notes">
+                Grafikart : https://grafikart.fr/tutoriels/comprends-ssl-tls-745
+                Science étonnante : https://www.youtube.com/watch?v=1Yv8m398Fv0
+            </aside>
+        </section>
+
+        <section>
+            <h1>Signature</h1>
+        </section>
+
+        <section data-auto-animate>
+            <h1>Signature</h1>
+            <ul class="bigger text-secondary">
+                <li>Vérifier l'origine d'un message</li>
+                <li class="fragment">Ne chiffre pas l'information</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1>Faiblesses</h1>
+        </section>
+
+        <section data-auto-animate>
+            <h2>Hachage</h2>
+            <ul class="text-secondary bigger">
+                <li class="fragment">Collision</li>
+                <li class="fragment">Brute-force</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Hachage, solutions</h2>
+            <ul class="text-secondary bigger">
+                <li class="fragment">Choisir le bon algorithme</li>
+                <li class="fragment">Augmenter le coût de génération</li>
+                <li class="fragment">Introduction d'une variance (salt/pepper)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Chiffrement</h2>
+            <ul class="text-secondary bigger">
+                <li class="fragment">Trouver comment inverser</li>
+                <li class="fragment">Vol de la clef de chiffrement / déchiffrement</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Rendez-vous dans des cas concrets</h2>
+        </section>
+
+    </div>
+  </div>
+</body>
+
+</html>

@@ -49,6 +49,8 @@
         <li class="fragment">Re-découverte de Ruby<span class="text-primary"> (2013) ❤️</span></li>
         <li class="fragment">Premiers projets pro avec Rails <span class="text-primary">(2014)</span></li>
         <li class="fragment">Migration de Grafikart vers Rails <span class="text-primary">(2015)</span></li>
+        <li class="fragment">PHP 7.4<span class="text-primary">(2019)</span></li>
+        <li class="fragment">Migration de Grafikart vers Symfony <span class="text-primary">(2020)</span></li>
       </ul>
     </section>
 
@@ -64,8 +66,6 @@ def maMethode (file)
    # Le code...
 end
       </code></pre>
-
-      
     </section>
 
       <section>
@@ -84,6 +84,8 @@ class Integer
 end
 
 puts 2.double
+# Dans rails
+puts 2.days.ago
 </code></pre>
       </section>
 
@@ -94,21 +96,14 @@ puts 2.double
           </p>
 
           <pre><code data-trim data-noescape class="language-ruby">
-class EmailContact
-  include ActiveModel::API
+class User &lt; ApplicationRecord
 
   attr_accessor :name, :email, :message
   validates :name, :email, :message, presence: true
+  has_many :addresses
 
 end
       </code></pre>
-      </section>
-
-      <section>
-          <h2 class="text-secondary">La <span class="text-primary">performance</span></h2>
-          <p>
-              Problèmes de fuites de mémoires.
-          </p>
       </section>
 
       <section>
