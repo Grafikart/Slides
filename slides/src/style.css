@@ -63,6 +63,13 @@ strong {
   gap: 1rem;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
 .stack {
   display: grid;
   grid-template-columns: 1fr;

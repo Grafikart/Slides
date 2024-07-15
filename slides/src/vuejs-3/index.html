@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VueJS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/monokai-sublime.min.css">
+  <script type="module" src="../main.ts" defer></script>
+  <style>
+    :root body {
+      --primary: #42b883;
+      --secondary: #35495e;
+      --background: #FFF;
+    }
+    .reveal-viewport {
+      background: linear-gradient(to top, #ffffffbf, #ffffff1a), url(./VueJS.png) bottom -150px left -120px / 800px 800px no-repeat var(--background)!important;
+    }
+    .split {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-content: center;
+    }
+    pre, img {
+      position: relative;
+      border: 15px solid var(--primary);
+    }
+    .hljs-ln-numbers {
+      display: none !important;
+    }
+    .logos {
+      width: max-content;
+      margin-inline: auto;
+      gap: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    .logos img {
+      border: none;
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <section class="first-slide">
+      <h1>
+        Vue<span class="text-secondary">.js</span>
+      </h1>
+      <p style="font-size: 1.5em;">
+        The Progressive
+        JavaScript Framework
+      </p>
+    </section>
+
+    <section>
+      <h2>Pourquoi ?</h2>
+      <p>Une librairie est là pour résoudre un<br/> problème</p>
+    </section>
+    
+    <section>
+      <div class="split" style="grid-template-columns: 1000px 500px;">
+
+      <pre style="width: 100%;"><code data-trim data-noescape class="language-js" style="font-size: 24px;">
+        class TodoList {
+
+          todos = []
+          element = null
+      
+          constructor (element) {
+              this.element = element
+          }
+      
+          addItem (name) {
+              this.todos.push(name)
+              const li = document.createElement('li')
+              const a = document.createElement('a')
+              a.innerText = 'Supprimer'
+              li.appendChild(a)
+              a.addEventListener('click', () => this.remove(name))
+              this.element.appendChild(li)
+          }
+      
+          removeItem (name) {
+              this.todos = this.todos.filter(t => t !== name)
+              // ????
+          }
+      
+          editItem (index, name) {
+              this.todos[index] = name
+              // ???
+          }
+      
+      }
+          </code></pre>
+
+          <p style="max-width: 500px;" class="fragment">Il est difficile de synchroniser notre états et notre vue</p>
+      </div>
+    </section>
+
+    <section>
+      <img src="https://media.giphy.com/media/PlnQNcQ4RYOhG/giphy.gif" alt="" style="height: 90%">
+    </section>
+
+    <section>
+      <div class="split" style="grid-template-columns: 1000px 500px;">
+
+      <pre style="width: 100%;"><code 
+        data-trim 
+        data-noescape
+        data-line-numbers="1-18|20-30|1-30"
+        class="language-html" 
+        style="font-size: 24px;"
+        >
+        &lt;script setup&gt;
+        import { ref } from &#039;vue&#039;
+        
+        // Etat de notre composant
+        const todos = ref([
+          &quot;T&acirc;che 1&quot;,
+          &quot;T&acirc;che 2&quot;,
+          &quot;T&acirc;che 3&quot;
+        ])
+          
+        // Mutations
+        const removeItem = (name) =&gt; {
+          todos.value = todos.value.filter(t =&gt; t !== name)
+        }
+        &lt;/script&gt;
+        
+        &lt;template&gt;
+          &lt;div&gt;
+             &lt;h1&gt;Ma liste de t&acirc;che &agrave; faire&lt;/h1&gt;
+            &lt;ul&gt;
+              &lt;li v-for=&quot;todo in todos&quot; :key=&quot;todo&quot;&gt;
+                {{ todo }}
+                &lt;button type=&quot;button&quot; @click=&quot;removeItem(todo)&quot;&gt;
+                  Supprimer
+                &lt;/button&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/template&gt;
+          </code></pre>
+
+          <div style="max-width: 500px; text-align: left;">
+            <p class="fragment" style="margin-bottom: 30px;">
+              On sépare état et vue
+            </p>
+            <p class="fragment">
+              L'HTML évolue automatiquement
+            </p>
+          </div>
+      </div>
+
+    </section>
+
+    <section>
+      <h1>
+        Pourquoi Vue.js
+      </h1>
+      <h2 class="text-secondary">plutôt que ...... ?</h2>
+      <div class="logos">
+        <img src="react.svg" alt="">
+        <img src="svelte.svg" alt="">
+        <img src="angular.png" alt="">
+        <img src="solidjs.svg" alt="">
+      </div>
+    </section>
+
+    <section>
+      <h1>Différent != Meilleur</h1>
+      <ul style="font-size: 1.5em;" class="text-secondary">
+        <li class="fragment">Simple à prendre en main</li>
+        <li class="fragment">Proche de l'HTML</li>
+        <li class="fragment">Gestion des transition</li>
+        <li class="fragment">Bon écosystème</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Prérequis</h1>
+      <p class="fragment" style="font-size: 1.5em;">(() => "Etre à l'aise avec le JavaScript")()</p>
+      <ul style="font-size: 1.5em; margin-top: 0;" class="text-secondary">
+        <li class="fragment">Portée des variables</li>
+        <li class="fragment">Arrow function</li>
+        <li class="fragment">map(), filter() et reduce()</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Ce que l'on va voir</h1>
+      <ul style="font-size: 1.5em; margin-top: 0;" class="text-secondary">
+        <li class="fragment">Les bases de Vue.js</li>
+        <li class="fragment">Concepts avancés</li>
+        <li class="fragment">L'écosystème</li>
+        <li class="fragment">Cas pratiques</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>C'est parti !</h1>
+    </section>
+
+  </div>
+</div>
+</body>
+
+</html>
