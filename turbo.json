@@ -1,10 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "tasks": {
     "dev": {
-      "cache": false
-    },
-    "motion": {
       "cache": false
     },
     "build": {

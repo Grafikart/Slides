@@ -14,7 +14,7 @@ const pathToName = (path: string): string => {
     .replaceAll(".html", "");
 };
 
-const paths = ["index.html", ...(await globby(["src/**/index.html"]))];
+const paths = ["index.html", ...(await globby(["src/**/index.html"]))].filter(p => p.split('/').length <= 3);
 
 export default defineConfig({
   plugins: [svelte()],
