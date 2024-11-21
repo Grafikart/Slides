@@ -65,7 +65,7 @@
       <h2>Pourquoi ?</h2>
       <p>Une librairie est là pour résoudre un<br/> problème</p>
     </section>
-    
+
     <section>
       <div class="split" style="grid-template-columns: 1000px 500px;">
 
@@ -74,11 +74,11 @@
 
           todos = []
           element = null
-      
+
           constructor (element) {
               this.element = element
           }
-      
+
           addItem (name) {
               this.todos.push(name)
               const li = document.createElement('li')
@@ -88,17 +88,17 @@
               a.addEventListener('click', () => this.remove(name))
               this.element.appendChild(li)
           }
-      
+
           removeItem (name) {
               this.todos = this.todos.filter(t => t !== name)
               // ????
           }
-      
+
           editItem (index, name) {
               this.todos[index] = name
               // ???
           }
-      
+
       }
           </code></pre>
 
@@ -113,29 +113,29 @@
     <section>
       <div class="split" style="grid-template-columns: 1000px 500px;">
 
-      <pre style="width: 100%;"><code 
-        data-trim 
+      <pre style="width: 100%;"><code
+        data-trim
         data-noescape
-        data-line-numbers="1-18|20-30|1-30"
-        class="language-html" 
+        data-line-numbers="1-16|17-30|1-30"
+        class="language-html"
         style="font-size: 24px;"
         >
         &lt;script setup&gt;
         import { ref } from &#039;vue&#039;
-        
+
         // Etat de notre composant
         const todos = ref([
           &quot;T&acirc;che 1&quot;,
           &quot;T&acirc;che 2&quot;,
           &quot;T&acirc;che 3&quot;
         ])
-          
+
         // Mutations
         const removeItem = (name) =&gt; {
           todos.value = todos.value.filter(t =&gt; t !== name)
         }
         &lt;/script&gt;
-        
+
         &lt;template&gt;
           &lt;div&gt;
              &lt;h1&gt;Ma liste de t&acirc;che &agrave; faire&lt;/h1&gt;
@@ -153,7 +153,7 @@
 
           <div style="max-width: 500px; text-align: left;">
             <p class="fragment" style="margin-bottom: 30px;">
-              On sépare état et vue
+              On sépare les données
             </p>
             <p class="fragment">
               L'HTML évolue automatiquement
@@ -190,9 +190,10 @@
       <h1>Prérequis</h1>
       <p class="fragment" style="font-size: 1.5em;">(() => "Etre à l'aise avec le JavaScript")()</p>
       <ul style="font-size: 1.5em; margin-top: 0;" class="text-secondary">
-        <li class="fragment">Portée des variables</li>
         <li class="fragment">Arrow function</li>
         <li class="fragment">map(), filter() et reduce()</li>
+        <li class="fragment">Utilisation des import</li>
+        <li class="fragment">Pouvoir utiliser un bundler</li>
       </ul>
     </section>
 
