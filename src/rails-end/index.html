@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ruby on rails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github.min.css">
+  
+  <style>
+    :root body {
+      --primary: #D30001;
+      --secondary: #35495e;
+      --background: #FFF;
+    }
+    .reveal-viewport {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), url(/Slides/assets/ruby_logo.svg) #FFF bottom -150px left -120px / 800px 800px no-repeat!important;
+    }
+    .hljs {
+      background: rgba(255,255,255, 0.6);
+    }
+  </style>
+  <script type="module" crossorigin src="/Slides/modulepreload-polyfill.js"></script>
+  <script type="module" crossorigin src="/Slides/main.js"></script>
+  <link rel="stylesheet" href="/Slides/assets/main.css">
+</head>
+
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <section class="first-slide">
+      <h1 class="text-secondary">Pourquoi je ne parle plus de <br/><span class="text-primary">Ruby on rails</span></h1>
+    </section>
+
+    <section>
+      <h2>Tout est subjectif</h2>
+      <p>
+        Ce qui est bloquant pour moi <br/>
+        ne l'est pas forcément pour vous
+      </p>
+    </section>
+
+    <section>
+      <h2>Mon historique</h2>
+      <ul class="text-secondary">
+        <li class="fragment"><a href="https://twitter.com/grafikart_fr/status/114615821870960640">Découverte de Ruby on rails</a><span class="text-primary"> (2011) 💔</span></li>
+        <li class="fragment">Passage sur Linux<span class="text-primary"> (2013)</span></li>
+        <li class="fragment">Re-découverte de Ruby<span class="text-primary"> (2013) ❤️</span></li>
+        <li class="fragment">Premiers projets pro avec Rails <span class="text-primary">(2014)</span></li>
+        <li class="fragment">Migration de Grafikart vers Rails <span class="text-primary">(2015)</span></li>
+        <li class="fragment">PHP 7.4<span class="text-primary">(2019)</span></li>
+        <li class="fragment">Migration de Grafikart vers Symfony <span class="text-primary">(2020)</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-secondary">Pas de <span class="text-primary">typage</span></h2>
+      <p>
+        Le <span class="text-primary">duck typing</span> ne me suffit pas
+      </p>
+
+      <pre><code data-trim data-noescape class="language-ruby">
+def maMethode (file)
+   raise TypeError unless file.respond_to?(:read)
+   # Le code...
+end
+      </code></pre>
+    </section>
+
+      <section>
+          <h2 class="text-secondary">Les classes <span class="text-primary">ouvertes</span></h2>
+          <p>
+              Un même type peut être différent suivant les environnements
+          </p>
+
+          <pre><code data-trim data-noescape class="language-ruby">
+class Integer
+
+  def double
+    self * 2
+  end
+
+end
+
+puts 2.double
+# Dans rails
+puts 2.days.ago
+</code></pre>
+      </section>
+
+      <section>
+          <h2 class="text-secondary">Les méthodes <span class="text-primary">magiques</span></h2>
+          <p>
+              Impossible d'avoir une analyse statique
+          </p>
+
+          <pre><code data-trim data-noescape class="language-ruby">
+class User &lt; ApplicationRecord
+
+  attr_accessor :name, :email, :message
+  validates :name, :email, :message, presence: true
+  has_many :addresses
+
+end
+      </code></pre>
+      </section>
+
+      <section>
+          <h2 class="text-secondary">Plus complexe à <span class="text-primary">héberger</span></h2>
+          <p>
+              Plus complexe qu'un simple mutualisé.
+          </p>
+      </section>
+
+    <section>
+      <h2>J'ai changé</h2>
+      <p>
+          Mes sensibilités ont évolué.
+      </p>
+    </section>
+
+  </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JS Outils</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/monokai-sublime.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+    
+    <style>
+        :root body {
+            --primary: #58c4dc;
+            --secondary: #f6f7f9;
+            --background: #16181d;
+        }
+    </style>
+  <script type="module" crossorigin src="/Slides/modulepreload-polyfill.js"></script>
+  <script type="module" crossorigin src="/Slides/main.js"></script>
+  <link rel="stylesheet" href="/Slides/assets/main.css">
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <h1>Tester sur React</h1>
+        </section>
+
+        <section>
+
+            <section>
+                <h2>Les outils</h2>
+                <ul class="text-secondary">
+                    <li>Jest</li>
+                    <li>Vitest</li>
+                </ul>
+            </section>
+
+
+            <section>
+                <h2>Vitest</h2>
+                <ul class="text-secondary">
+                    <li>S'installe facilement dans un projet Vite</li>
+                    <li>Fonctionne avec TypeScript / React</li>
+                </ul>
+                <aside class="notes">
+                    Faire l'installation de vite
+                </aside>
+            </section>
+
+            <section>
+                <h2>Comment tester avec le DOM ?</h2>
+                <ul class="text-secondary">
+                    <li>JSDom / Happy-DOM</li>
+                </ul>
+                <aside class="notes">
+                    Faire l'installation de JSDom<br/>
+                    Tester updateTitle()
+                </aside>
+            </section>
+        </section>
+
+        <section>
+
+            <section>
+                <h1>Comment tester les hooks ?</h1>
+            </section>
+
+            <section>
+                <h2>React testing library</h2>
+                <pre>npm i -D @testing-library/react @testing-library/dom</pre>
+            </section>
+
+            <section>
+                <h2>Les fonctions à connaitre</h2>
+                <ul class="text-secondary">
+                    <li>renderHook(), pour le rendu initial</li>
+                    <li>act(), dès qu'on appelle une méthode</li>
+                </ul>
+                <aside class="notes">
+                    Tester useToggle()<br/>
+                    npm i -D @testing-library/react @testing-library/dom
+                </aside>
+            </section>
+
+            <section>
+                <h2>Tester les effets de bords</h2>
+                <ul class="text-secondary">
+                    <li>Comment gérer fetch() ?</li>
+                    <li class="fragment">En utilisant l'injection de dépendance</li>
+                </ul>
+                <aside class="notes">
+                    Tester useFetch()<br/>
+                </aside>
+            </section>
+
+            <section>
+                <h2>Mock & Espions</h2>
+                <ul class="text-secondary">
+                    <li class="fragment">Mock du temps</li>
+                    <li class="fragment">Espion</li>
+                </ul>
+                <aside class="notes">
+                    Tester useIsWeekend()
+                    Tester useFetch()<br/>
+                </aside>
+            </section>
+
+
+        </section>
+
+        <section>
+
+            <section>
+                <h1>Comment tester les composants ?</h1>
+            </section>
+
+            <section>
+                <h2>Les fonctions utiles</h2>
+                <ul class="text-secondary">
+                    <li>@testing-library/react</li>
+                    <li>@testing-library/user-event</li>
+                </ul>
+                <aside class="notes">
+                    Tester Modal (snapshot, le click sur close...)
+                </aside>
+            </section>
+
+            <section>
+                <h2>Storybook</h2>
+                <ul class="text-secondary">
+                    <li>@testing-library/react</li>
+                    <li>@testing-library/user-event</li>
+                </ul>
+                <aside class="notes">
+                    Tester Modal (snapshot, le click sur close, Escape...)
+                </aside>
+            </section>
+
+        </section>
+
+        <section>
+
+            <section>
+                <h1>Tester de bout en bout</h1>
+                <ul class="text-secondary">
+                    <li class="fragment">Piloter un navigateur</li>
+                </ul>
+            </section>
+        </section>
+
+    </div>
+</div>
+</body>
+
+</html>

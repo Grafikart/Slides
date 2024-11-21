@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organiser son CSS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.4.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/monokai-sublime.min.css">
+  
+  <style>
+    :root body {
+      --primary: #60a5fa;
+      --secondary: rgb(220, 215, 210);
+      --background: #020617;
+    }
+
+    @font-face { font-family: Excalifont; src: url(data:font/woff2;base64,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); }
+  </style>
+  <script type="module" crossorigin src="/Slides/modulepreload-polyfill.js"></script>
+  <script type="module" crossorigin src="/Slides/main.js"></script>
+  <link rel="stylesheet" href="/Slides/assets/main.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+        <section>
+            <h1>CSS Sémantique ou Atomique</h1>
+            <p class="fragment">Quel est la différence ?</p>
+        </section>
+
+        <section>
+            <h2>Exemple</h2>
+            <svg style="margin: 0 auto;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 627.0834612869912 664.2130126034291" width="627.0834612869912" height="664.2130126034291" filter="invert(93%) hue-rotate(180deg)">
+                <g stroke-linecap="round" transform="translate(10 10) rotate(0 303.5417306434956 322.10650630171455)"><path d="M0 0 C234.05 -1.97, 469.02 -1.19, 607.08 0 M0 0 C225.63 -0.06, 451.76 -0.09, 607.08 0 M607.08 0 C608.07 232.85, 607.87 464.01, 607.08 644.21 M607.08 0 C608.07 216.76, 608.64 432.97, 607.08 644.21 M607.08 644.21 C415.12 646.68, 222.91 646.56, 0 644.21 M607.08 644.21 C365.64 645.59, 124.43 645.93, 0 644.21 M0 644.21 C2.63 497.93, 1.8 350.04, 0 0 M0 644.21 C-0.21 393.24, -0.41 142.47, 0 0" stroke="#1e1e1e" stroke-width="1" fill="none"></path></g><g transform="translate(32.52835974640766 409.45962489581086) rotate(0 277.4423886814029 70)"><text x="0" y="24.668" font-family="Excalifont, Xiaolai, Segoe UI Emoji" font-size="28px" fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">Adorable peluche raton laveur douce et</text><text x="0" y="59.668" font-family="Excalifont, Xiaolai, Segoe UI Emoji" font-size="28px" fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">câline, parfaite pour réconforter petits</text><text x="0" y="94.668" font-family="Excalifont, Xiaolai, Segoe UI Emoji" font-size="28px" fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">et grands avec son pelage ultra-doux et</text><text x="0" y="129.668" font-family="Excalifont, Xiaolai, Segoe UI Emoji" font-size="28px" fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">son regard attendrissant</text></g><g transform="translate(31.01753773595101 339.70412481855317) rotate(0 280.0171846656044 22.5)"><text x="0" y="31.716" font-family="Excalifont, Xiaolai, Segoe UI Emoji" font-size="36px" fill="#1e1e1e" text-anchor="start" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">Peluche raton laveur</text></g><g stroke-linecap="round" transform="translate(28.974027262936943 25.398337109980957) rotate(0 287.2585236940931 147.40448519301532)"><path d="M-0.11 0.84 L572.7 -0.64 L573.21 295.65 L-0.51 296.45" stroke="none" stroke-width="0" fill="#e9ecef"></path><path d="M0 0 C180.09 -2.57, 360.43 -2.46, 574.52 0 M0 0 C125.37 1.05, 251.37 1.67, 574.52 0 M574.52 0 C572.78 59.45, 574.13 120.87, 574.52 294.81 M574.52 0 C575.99 91.04, 576.27 181.99, 574.52 294.81 M574.52 294.81 C414.96 294.42, 256.19 295.29, 0 294.81 M574.52 294.81 C358.57 296.04, 142.61 296.21, 0 294.81 M0 294.81 C-2.33 234.15, 0.16 172.14, 0 0 M0 294.81 C-0.38 183.24, -0.36 70.72, 0 0" stroke="#1e1e1e" stroke-width="1" fill="none"></path></g><g stroke-linecap="round"><g transform="translate(32.786657086260675 314.25078788585563) rotate(0 282.45678286858447 -145.57557258093516)"><path d="M0 0 C115.96 -57.16, 231.78 -116.91, 564.91 -291.15 M0 0 C126.38 -63.11, 253.23 -128.48, 564.91 -291.15" stroke="#1e1e1e" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round"><g transform="translate(593.7470763485617 315.51432008117854) rotate(0 -281.0114221493918 -145.93796855980003)"><path d="M0 0 C-162.19 -85.78, -324.72 -169.75, -562.02 -291.88 M0 0 C-220.45 -112.64, -441.35 -227.63, -562.02 -291.88" stroke="#1e1e1e" stroke-width="1" fill="none"></path></g></g><mask></mask><g stroke-linecap="round" transform="translate(330.23025585948653 579.2463336270497) rotate(0 131.6824231919968 25.38013184426751)"><path d="M-1.83 -1.52 L263.82 -1.32 L262.92 50.84 L0.03 50.64" stroke="none" stroke-width="0" fill="#e9ecef"></path><path d="M0 0 C102.82 -3.05, 205.03 -0.96, 263.36 0 M0 0 C87.28 2.47, 175.52 2.27, 263.36 0 M263.36 0 C262.59 14.3, 263.11 27.04, 263.36 50.76 M263.36 0 C264.02 19.15, 262.76 39.16, 263.36 50.76 M263.36 50.76 C210.58 49.13, 156.79 49.45, 0 50.76 M263.36 50.76 C180.32 50.85, 95.97 51.32, 0 50.76 M0 50.76 C0.75 35.2, -0.47 17.61, 0 0 M0 50.76 C0.14 33.29, 0.24 14.87, 0 0" stroke="#1e1e1e" stroke-width="1" fill="none"></path></g><g transform="translate(408.6764806261908 587.1264654713173) rotate(0 53.23619842529297 17.5)"><text x="53.23619842529297" y="24.668" font-family="Excalifont, Xiaolai, Segoe UI Emoji" font-size="28px" fill="#1e1e1e" text-anchor="middle" style="white-space: pre;" direction="ltr" dominant-baseline="alphabetic">Acheter</text></g></svg>
+        </section>
+
+        <section>
+            <h2>CSS Sémantique</h2>
+            <p>Les classes représentent la fonction</p>
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape class="html">
+            &lt;div class="product">
+                &lt;img class="product-thumbnail">
+                &lt;h2 class="product-title">Peluche raton laveur&lt;/h2>
+                &lt;p class="product-description">
+                    Adorable peluche raton laveur douce et câline,
+                    parfaite pour réconforter petits et grands avec
+                    son pelage ultra-doux et son regard attendrissant
+                &lt;/p>
+                &lt;button class="product-action btn btn-primary">
+                    Acheter
+                &lt;/button>
+            &lt;/div>
+            </code></pre>
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape class="css">
+.product {
+  max-width: 300px;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: 0px 2px 4px #00000012;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-description {
+  line-height: 1.4;
+  color: #374151;
+}
+
+.product-thumbnail {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.btn {
+  background: #1f2937;
+  font-size: 1rem;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  border: none;
+}
+
+.product-action {
+  margin-top: .5rem;
+  display: block;
+  margin-left: auto;
+}
+
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Avantages</h2>
+            <ul class="text-secondary">
+                <li>Découple le fond de la forme (ex: <a href="https://csszengarden.com/">CSS Garden</a>)</li>
+                <li>HTML plus lisible</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Inconvénients</h2>
+            <ul class="text-secondary">
+                <li>Trouver des noms de classes</li>
+                <li>Risque de duplication</li>
+                <li>Maintenance difficile si manque de rigueur</li>
+            </ul>
+        </section>
+        <section>
+            <h2>CSS atomique / utilitaire</h2>
+            <p>Une classe = une règle</p>
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape class="html">
+&lt;div class=&quot;bg-white shadow max-w-[300px] p-2 rounded-lg space-y-2&quot;&gt;
+    &lt;img class=&quot;rounded&quot;  src=&quot;https://picsum.photos/800/600&quot;&gt;
+    &lt;h2 class=&quot;text-xl color-slate-900 font-bold&quot;&gt;Peluche raton laveur&lt;/h2&gt;
+    &lt;p class=&quot;color-slate-700 text-base&quot;&gt;
+        Adorable peluche raton laveur douce et câline,
+        parfaite pour réconforter petits et grands avec
+        son pelage ultra-doux et son regard attendrissant
+    &lt;/p&gt;
+    &lt;button class=&quot;bg-slate-800 py-2 px-3 rounded ml-a block hover:bg-slate-600&quot;&gt;
+        Acheter
+    &lt;/button&gt;
+&lt;/div&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape class="css">
+.grid {
+  display: grid;
+}
+.ml-a {
+  margin-left: auto;
+}
+.block {
+  display: block;
+}
+.h-\[100vh\] {
+  height: 100vh;
+}
+.max-w-\[300px\] {
+  max-width: 300px;
+}
+.place-items-center {
+  place-items: center;
+}
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --un-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--un-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--un-space-y-reverse));
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.bg-slate-300 {
+  --un-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--un-bg-opacity));
+}
+.bg-slate-800 {
+  --un-bg-opacity: 1;
+  background-color: rgb(30 41 59 / var(--un-bg-opacity));
+}
+.bg-white {
+  --un-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--un-bg-opacity));
+}
+.hover\:bg-slate-600:hover {
+  --un-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--un-bg-opacity));
+}
+.p-2 {
+  padding: 0.5rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.color-slate-700 {
+  --un-text-opacity: 1;
+  color: rgb(51 65 85 / var(--un-text-opacity));
+}
+.color-slate-900 {
+  --un-text-opacity: 1;
+  color: rgb(15 23 42 / var(--un-text-opacity));
+}
+.font-bold {
+  font-weight: 700;
+}
+.shadow {
+  --un-shadow: var(--un-shadow-inset) 0 1px 3px 0
+      var(--un-shadow-color, rgb(0 0 0 / 0.1)),
+    var(--un-shadow-inset) 0 1px 2px -1px var(--un-shadow-color, rgb(0 0 0 / 0.1));
+  box-shadow: var(--un-ring-offset-shadow), var(--un-ring-shadow),
+    var(--un-shadow);
+}
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Avantages</h2>
+            <ul class="text-secondary">
+                <li>Itération plus rapide</li>
+                <li>Meilleure expérience de développement</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Inconvénients</h2>
+            <ul class="text-secondary">
+                <li>Risque d'un manque de cohérence</li>
+                <li>Peu de mutualisation</li>
+                <li>Nécessite un outillage (CSS à la demande)</li>
+                <li>On se prive de l'imbrication</li>
+            </ul>
+        </section>
+
+        <section>
+            <pre><code data-trim data-noescape class="html">
+&lt;ul&gt;
+    &lt;li&gt;Pomme&lt;/li&gt;
+    &lt;li&gt;Banane&lt;/li&gt;
+    &lt;li&gt;Carottes&lt;/li&gt;
+    &lt;li&gt;Pain&lt;/li&gt;
+    &lt;li&gt;Lait&lt;/li&gt;
+&lt;/ul&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Imbrication avec l'approche sémantique</h2>
+            <pre><code data-trim data-noescape class="html">
+&lt;ul class="shopping-list"&gt;
+    &lt;li&gt;Pomme&lt;/li&gt;
+    &lt;li&gt;Banane&lt;/li&gt;
+    &lt;li&gt;Carottes&lt;/li&gt;
+    &lt;li&gt;Pain&lt;/li&gt;
+    &lt;li&gt;Lait&lt;/li&gt;
+&lt;/ul&gt;
+            </code></pre>
+        </section>
+
+
+        <section>
+            <pre><code data-trim data-noescape class="css">
+.shopping-list {
+    width: 100px;
+}
+
+.shopping-list li {
+    cursor: pointer;
+    padding: .5rem 0;
+    transition: all .3s;
+}
+
+.shopping-list li + li {
+    border-top: solid 1px #94a3b8;
+}
+
+.shopping-list li:hover {
+    padding-left: .5rem;
+    background-color: #cbd5e1;
+}
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Imbrication avec l'approche atomique</h2>
+            <pre><code data-trim data-noescape class="html">
+        &lt;ul class=&quot;text-slate-700 divide-y-1 divide-slate-400&quot;&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Pomme&lt;/li&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Banane&lt;/li&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Carottes&lt;/li&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Pain&lt;/li&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Lait&lt;/li&gt;
+        &lt;/ul&gt;
+            </code></pre>
+        </section>
+
+        <section>
+    <pre><code data-trim data-noescape class="html">
+&lt;ul class=&quot;text-slate-700 divide-y-1 divide-slate-400 [&amp;_li]:py-2 [&amp;_li:hover]:pl-2 [&amp;_li:hover]:bg-slate-300 [&amp;_li]:transition-all&quot;&gt;
+    &lt;li&gt;Pomme&lt;/li&gt;
+    &lt;li&gt;Banane&lt;/li&gt;
+    &lt;li&gt;Carottes&lt;/li&gt;
+    &lt;li&gt;Pain&lt;/li&gt;
+    &lt;li&gt;Lait&lt;/li&gt;
+&lt;/ul&gt;
+    </code></pre>
+        </section>
+
+        <section>
+            <h2>
+                Les inconvénients dépendent <br/>
+                de la technologie
+            </h2>
+            <p>Les composants remplacent les classes</p>
+        </section>
+
+        <section>
+            <h2>L'imbrication réduite à la génération</h2>
+
+            <div class="r-stack">
+            <pre class="fragment fade-out" data-fragment-index="1"><code data-trim data-noescape class="html">
+        &lt;ul class=&quot;text-slate-700 divide-y-1 divide-slate-400&quot;&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Pomme&lt;/li&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Banane&lt;/li&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Carottes&lt;/li&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Pain&lt;/li&gt;
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;Lait&lt;/li&gt;
+        &lt;/ul&gt;
+            </code></pre>
+                <pre class="fragment" data-fragment-index="1"><code data-trim data-noescape class="html">
+        &lt;ul class=&quot;text-slate-700 divide-y-1 divide-slate-400&quot;&gt;
+            {# for item in basket #}
+            &lt;li class=&quot;py-2 hover:pl-2 hover:bg-slate-300 transition-all&quot;&gt;{item}&lt;/li&gt;
+            {# endfor #}
+        &lt;/ul&gt;
+            </code></pre>
+            </div>
+        </section>
+
+        <section>
+    <pre><code data-trim data-noescape class="html">
+&lt;Card&gt;
+  &lt;Image rounded src="" &gt;
+  &lt;Heading level=&quot;h2&quot;&gt;Peluche raton laveur&lt;/Heading&gt;
+  &lt;Paragraph&gt;
+      Adorable peluche raton laveur douce et câline,
+      parfaite pour réconforter petits et grands avec
+      son pelage ultra-doux et son regard attendrissant
+  &lt;/Paragraph&gt;
+  &lt;Button variant=&quot;primary&quot;&gt;
+      Acheter
+  &lt;/Button&gt;
+&lt;/Card&gt;
+    </code></pre>
+        </section>
+
+        <section>
+            <h2>La sémantique est gérée au niveau du composant</h2>
+            <div class="r-stack">
+                <pre class="fragment fade-out"  data-fragment-index="1"><code data-trim data-noescape class="vue">
+            &lt;!-- card.vue -->
+            &lt;div
+                class="bg-white rounded shadow"
+                :class="{"hover:bg-light-400 hover:shadow-lg": hoverable}"
+            >
+                &lt;slot>&lt;/slot>
+            &lt;/div>
+                </code></pre>
+                <pre class="fragment" data-fragment-index="1"><code data-trim data-noescape class="vue">
+&lt;div class="card card-hoverable">
+    Lorem ipsum dolor sit amet ...
+&lt;/div>
+    </code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>
+                Exemples
+            </h2>
+            <ul class="text-secondary">
+                <li>FrontEnd : React, VueJS, Svelte, Solid, Angular...</li>
+                <li>Backend : include ou fonction</li>
+                <li>
+                    Python
+                    <pre><code class="python">{% app_button "Supprimer" variant="danger" %}</code></pre>
+                </li>
+                <li>
+                    PHP : <a href="https://laravel.com/docs/11.x/blade">Laravel : Blade component</a>, <a href="https://symfony.com/bundles/ux-twig-component/current/index.html">Symfony : Twig component</a>
+                    <pre><code class="php">&lt;x-button variant="primary">Acheter&lt;/x-button></code></pre>
+                </li>
+                <li>
+                    Ruby on Rails : <a href="https://viewcomponent.org/">View component</a> ou erb
+                    <pre><code class="ruby">&lt;%= render(Button.new(variant: "primary", text: "Acheter")) %></code></pre>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>L'approche dépend de la situation</h2>
+            <p>Je travaille avec un designer ?</p>
+        </section>
+
+        <section>
+            <h2>
+                Dans la réalité...
+            </h2>
+            <p>Dans les faits, on peut mixer les 2 approches</p>
+
+
+            <pre><code data-trim data-noescape class="html">
+&lt;div class=&quot;card p-4&quot;&gt;
+    &lt;img class=&quot;rounded&quot; src=&quot;...&quot;&gt;
+    &lt;h2 class=&quot;h2&quot;&gt;Peluche raton laveur&lt;/h2&gt;
+    &lt;p class=&quot;paragraph&quot;&gt;
+        Adorable peluche raton laveur douce et câline,
+        parfaite pour réconforter petits et grands avec
+        son pelage ultra-doux et son regard attendrissant
+    &lt;/p&gt;
+    &lt;button class=&quot;ml-a btn btn-primary&quot;&gt;
+        Acheter
+    &lt;/button&gt;
+&lt;/div&gt;
+    </code></pre>
+        </section>
+    </div>
+  </div>
+</body>
+
+</html>
