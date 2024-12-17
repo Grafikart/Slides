@@ -1,0 +1,46 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "glyph",
+      "targetTime": 2.8495175471634466
+    },
+    {
+      "name": "baseline",
+      "targetTime": 9.074110201003789
+    },
+    {
+      "name": "xHeight",
+      "targetTime": 16.078533937901685
+    },
+    {
+      "name": "capHeight",
+      "targetTime": 35.73885311977699
+    },
+    {
+      "name": "capHeightnoupm",
+      "targetTime": 45.65205712266739
+    },
+    {
+      "name": "upm16",
+      "targetTime": 48.79079825681967
+    },
+    {
+      "name": "ascent",
+      "targetTime": 66.24675074008722
+    },
+    {
+      "name": "ascenteacute",
+      "targetTime": 76.2161452550983
+    },
+    {
+      "name": "queue",
+      "targetTime": 83.89554835392805
+    },
+    {
+      "name": "finmetrics",
+      "targetTime": 100.48845732219658
+    }
+  ],
+  "seed": 2303518167
+}

@@ -11,7 +11,7 @@ const duration = 1;
 const fontSize = 80;
 
 export default makeScene2D(function* (view) {
-    view.fill(colors.bg)
+    view.fill(colors.bgAlpha)
 
     const codeRef = createRef<CodeBlock>()
     const titleRef = createRef<Txt>()

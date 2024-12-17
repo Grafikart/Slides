@@ -3,7 +3,7 @@
   "shared": {
     "background": null,
     "range": [
-      0,
+      104.16666566666667,
       null
     ],
     "size": {
@@ -17,7 +17,7 @@
     "resolutionScale": 1
   },
   "rendering": {
-    "fps": 30,
+    "fps": 24,
     "resolutionScale": 1,
     "colorSpace": "srgb",
     "exporter": {

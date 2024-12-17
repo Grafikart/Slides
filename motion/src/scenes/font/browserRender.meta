@@ -1,0 +1,54 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "browser",
+      "targetTime": 0.17075153868337017
+    },
+    {
+      "name": "loadFont",
+      "targetTime": 2.9367875643164636
+    },
+    {
+      "name": "loadFontMetrics",
+      "targetTime": 3.9367875643164636
+    },
+    {
+      "name": "loadUPM",
+      "targetTime": 7.246597464438111
+    },
+    {
+      "name": "resize",
+      "targetTime": 9.252031841812746
+    },
+    {
+      "name": "browserPosition",
+      "targetTime": 17.27795277059227
+    },
+    {
+      "name": "browserAscentDescent",
+      "targetTime": 21.54647466735818
+    },
+    {
+      "name": "browserCenter",
+      "targetTime": 26.696116209199563
+    },
+    {
+      "name": "spaceUp",
+      "targetTime": 30.615748371053396
+    },
+    {
+      "name": "spaceDown",
+      "targetTime": 34.0704709529942
+    },
+    {
+      "name": "browserBaseline",
+      "targetTime": 42.09825513620242
+    },
+    {
+      "name": "capline",
+      "targetTime": 60.47344765280084
+    }
+  ],
+  "seed": 3309601384
+}

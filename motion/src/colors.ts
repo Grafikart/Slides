@@ -2,6 +2,7 @@ export const colors = {
     text: '#C0CAF5',
     textLight: '#5D6791',
     bg: '#1A1B26',
+    bgAlpha: 'rgba(26, 27, 38, 0.70)',
     bgLight: '#2c2e3d',
     green: '#9DCC65',
     yellow: '#E0AF65',

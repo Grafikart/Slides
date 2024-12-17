@@ -1,0 +1,30 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "UnitsPerEm",
+      "targetTime": 109.55160635480738
+    },
+    {
+      "name": "UPM 1000",
+      "targetTime": 118.02977333301062
+    },
+    {
+      "name": "16px",
+      "targetTime": 123.01610054124095
+    },
+    {
+      "name": "1000=16px",
+      "targetTime": 126.35689596219423
+    },
+    {
+      "name": "24px",
+      "targetTime": 130.63626692332514
+    },
+    {
+      "name": "end-upm",
+      "targetTime": 134.53801243031037
+    }
+  ],
+  "seed": 3409418667
+}
