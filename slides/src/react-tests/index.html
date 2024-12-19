@@ -24,13 +24,13 @@
 <div class="reveal">
     <div class="slides">
 
-        <section>
+        <section data-time="30">
             <h1>Tester sur React</h1>
         </section>
 
         <section>
 
-            <section>
+            <section data-time="80">
                 <h2>Les outils</h2>
                 <ul class="text-secondary">
                     <li>Jest</li>
@@ -38,12 +38,11 @@
                 </ul>
             </section>
 
-
-            <section>
+            <section data-time="330">
                 <h2>Vitest</h2>
                 <ul class="text-secondary">
-                    <li>S'installe facilement dans un projet Vite</li>
-                    <li>Fonctionne avec TypeScript / React</li>
+                    <li class="fragment">S'installe facilement dans un projet Vite</li>
+                    <li class="fragment">Fonctionne avec TypeScript / React</li>
                 </ul>
                 <aside class="notes">
                     Faire l'installation de vite
@@ -68,7 +67,7 @@
                 <h1>Comment tester les hooks ?</h1>
             </section>
 
-            <section>
+            <section data-time="180">
                 <h2>React testing library</h2>
                 <pre>npm i -D @testing-library/react @testing-library/dom</pre>
             </section>
@@ -131,22 +130,18 @@
             <section>
                 <h2>Storybook</h2>
                 <ul class="text-secondary">
-                    <li>@testing-library/react</li>
-                    <li>@testing-library/user-event</li>
+                    <li>npx storybook@latest init</li>
                 </ul>
-                <aside class="notes">
-                    Tester Modal (snapshot, le click sur close, Escape...)
-                </aside>
             </section>
 
         </section>
 
         <section>
-
             <section>
                 <h1>Tester de bout en bout</h1>
                 <ul class="text-secondary">
                     <li class="fragment">Piloter un navigateur</li>
+                    <li class="fragment">Playwright</li>
                 </ul>
             </section>
         </section>
