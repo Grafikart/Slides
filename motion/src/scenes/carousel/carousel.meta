@@ -1,0 +1,18 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "mobile",
+      "targetTime": 0.07055197211281286
+    },
+    {
+      "name": "scroll",
+      "targetTime": 0.9381215968966079
+    },
+    {
+      "name": "flex",
+      "targetTime": 5.9381215968966075
+    }
+  ],
+  "seed": 2831241571
+}
