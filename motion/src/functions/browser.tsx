@@ -4,7 +4,7 @@ import {Length} from "@motion-canvas/2d/src/lib/partials";
 import BackButton from '../img/BackButton.svg'
 import Burger from '../img/Burger.svg'
 import {createRef} from "@motion-canvas/core/lib/utils";
-import {all} from "@motion-canvas/core";
+import {all, easeOutExpo} from "@motion-canvas/core";
 
 type Props = {
   url: string
@@ -78,7 +78,22 @@ export function addBrowser(parent: Node, props?: Props) {
           justifyContent="center">
     </Rect>
   </Rect>)
+  rect().clip(true)
+  rect().width(0).opacity(0).padding(0)
   return {
+    show: function * (duration = .5) {
+      yield* all(
+          rect().width(width, duration, easeOutExpo),
+          rect().padding(10, duration, easeOutExpo),
+          rect().opacity(1, duration, easeOutExpo),
+      )
+    },
+    hide: function * (duration = .5) {
+      yield* all(
+          rect().width(0, duration),
+          rect().padding(0, duration),
+      )
+    },
     mobile: function* (duration = .5) {
       yield* all(
         rect().width(400, duration),

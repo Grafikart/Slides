@@ -2,16 +2,24 @@
   "version": 0,
   "timeEvents": [
     {
+      "name": "grid",
+      "targetTime": 11
+    },
+    {
       "name": "mobile",
-      "targetTime": 0.07055197211281286
+      "targetTime": 20
     },
     {
       "name": "scroll",
-      "targetTime": 0.9381215968966079
+      "targetTime": 30
     },
     {
       "name": "flex",
-      "targetTime": 5.9381215968966075
+      "targetTime": 38
+    },
+    {
+      "name": "back",
+      "targetTime": 44
     }
   ],
   "seed": 2831241571
