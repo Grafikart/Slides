@@ -1,4 +1,4 @@
-import { Node, Path, Rect, Shape, Txt, makeScene2D } from "@motion-canvas/2d"
+import {Node, Path, Rect, Shape, Txt, makeScene2D, Code, LezerHighlighter} from "@motion-canvas/2d";
 import { colors } from "../colors.js"
 import { all, createRef, waitUntil } from "@motion-canvas/core";
 
