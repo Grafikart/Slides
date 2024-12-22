@@ -6,15 +6,16 @@
     "motion": "vite"
   },
   "dependencies": {
-    "@motion-canvas/core": "^3.14.1",
-    "@motion-canvas/2d": "^3.14.2",
-    "@motion-canvas/ffmpeg": "^1.1.1"
+    "@motion-canvas/2d": "^3.17.2",
+    "@motion-canvas/core": "^3.17.2",
+    "@motion-canvas/ffmpeg": "^3.17.2"
   },
   "devDependencies": {
-    "@motion-canvas/ui": "^3.14.2",
-    "@motion-canvas/vite-plugin": "^3.14.1",
-    "prettier": "^3.4.1",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.4"
+    "@lezer/javascript": "^1.4.21",
+    "@motion-canvas/ui": "^3.17.2",
+    "@motion-canvas/vite-plugin": "^3.17.2",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
   }
 }

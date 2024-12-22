@@ -1,0 +1,26 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "<button>",
+      "targetTime": 0
+    },
+    {
+      "name": "refProps",
+      "targetTime": 0.75
+    },
+    {
+      "name": "forwardRef",
+      "targetTime": 1.5
+    },
+    {
+      "name": "deprecatedForwardRef",
+      "targetTime": 2.25
+    },
+    {
+      "name": "forwardRefEnd",
+      "targetTime": 3
+    }
+  ],
+  "seed": 1051907755
+}

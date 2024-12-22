@@ -1,16 +1,17 @@
 import { makeProject } from "@motion-canvas/core";
+import {Code, LezerHighlighter} from '@motion-canvas/2d';
+import {parser} from '@lezer/javascript';
+import {react19Scenes} from "./scenes/react19";
 
-import lineHeightScene1 from "./scenes/font/font.js?scene";
-import lineHeightScene2 from "./scenes/font/fontMetrics.js?scene";
-import lineHeightScene3 from "./scenes/font/browserRender.js?scene";
-import carouselScene from "./scenes/carousel/carousel.js?scene";
+import './global.css';
 
-const lineHeightProject = [
-  lineHeightScene1,
-  lineHeightScene2,
-  lineHeightScene3
-]
+Code.defaultHighlighter = new LezerHighlighter(
+  parser.configure({
+    // Provide a space-separated list of dialects to enable:
+    dialect: 'jsx ts',
+  }),
+);
 
 export default makeProject({
-  scenes: [carouselScene],
+  scenes: react19Scenes,
 });

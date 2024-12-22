@@ -1,0 +1,22 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "head",
+      "targetTime": 0
+    },
+    {
+      "name": "headHighlight",
+      "targetTime": 0.75
+    },
+    {
+      "name": "head19",
+      "targetTime": 1.5
+    },
+    {
+      "name": "headEnd",
+      "targetTime": 2.25
+    }
+  ],
+  "seed": 1451290812
+}
