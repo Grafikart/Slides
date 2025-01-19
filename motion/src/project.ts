@@ -1,9 +1,9 @@
-import { makeProject } from "@motion-canvas/core";
+import {makeProject} from "@motion-canvas/core";
 import {Code, LezerHighlighter} from '@motion-canvas/2d';
 import {parser} from '@lezer/javascript';
-import {react19Scenes} from "./scenes/react19";
 
 import './global.css';
+import {langScenes} from "./scenes/lang";
 
 Code.defaultHighlighter = new LezerHighlighter(
   parser.configure({
@@ -13,5 +13,5 @@ Code.defaultHighlighter = new LezerHighlighter(
 );
 
 export default makeProject({
-  scenes: react19Scenes,
+  scenes: langScenes,
 });
