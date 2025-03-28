@@ -1,0 +1,41 @@
+{# templates/components/pagination.html.twig #}
+<div class="flex justify-center mt-6 gap-2">
+    {% if currentPage > 1 %}
+        <a 
+            href="{{ path(route_name, {page: currentPage - 1}|merge(route_params|default({}))) }}"
+            hx-get="{{ path(route_name, {page: currentPage - 1}|merge(route_params|default({}))) }}"
+            hx-push-url="true"
+            class="px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 hover:text-white transition-colors duration-150"
+        >
+            Précédent
+        </a>
+    {% endif %}
+
+    {% for i in 1..pagesCount %}
+        <a 
+            href="{{ path(route_name, {page: i}|merge(route_params|default({}))) }}"
+            hx-get="{{ path(route_name, {page: i}|merge(route_params|default({}))) }}"
+            hx-push-url="true"
+            class="px-4 py-2 {% if i == currentPage %}bg-blue-500 text-white{% else %}bg-gray-100 text-gray-700{% endif %} rounded hover:bg-blue-600 hover:text-white transition-colors duration-150"
+        >
+            {{ i }}
+        </a>
+    {% endfor %}
+
+    {% if currentPage < pagesCount %}
+        <a 
+            href="{{ path(route_name, {page: currentPage + 1}|merge(route_params|default({}))) }}"
+            hx-get="{{ path(route_name, {page: currentPage + 1}|merge(route_params|default({}))) }}"
+            hx-push-url="true"
+            class="px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 hover:text-white transition-colors duration-150"
+        >
+            Suivant
+        </a>
+    {% endif %}
+</div>
+
+{% if show_total|default(true) %}
+    <div class="text-center text-gray-600 mt-4">
+        Total: {{ totalPosts }} articles
+    </div>
+{% endif %}

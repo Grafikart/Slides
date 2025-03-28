@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta
+            name="htmx-config"
+            content='{
+        "responseHandling":[
+            {"code":"204", "swap": false},
+            {"code":"[23]..", "swap": true},
+            {"code":"422", "swap": true},
+            {"code":"[45]..", "swap": false, "error":true},
+            {"code":"...", "swap": true}
+        ]
+    }'
+    />
+
+    {% block stylesheets %}
+        {{ vite_entry_link_tags('htmx') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ vite_entry_script_tags('htmx') }}
+    {% endblock %}
+</head>
+<body>
+<div class="container mx-auto my-8 prose">
+    <h1>Exemple d'ergonomie basé sur htmx</h1>
+    <p>
+        {{ 'now'|date("H:i:s") }}
+    </p>
+</div>
+<main class="container my-8 mx-auto" id="main">
+    {% block body %}{% endblock %}
+</main>
+</body>
+</html>

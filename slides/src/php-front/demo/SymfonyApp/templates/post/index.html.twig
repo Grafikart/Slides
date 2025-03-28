@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Posts{% endblock %}
+
+{% block body %}
+    <h1>All Posts</h1>
+
+    {% if posts is not empty %}
+        {% for post in posts %}
+            <article>
+                <h2><a href="{{ path('post_show', {'slug': post.slug}) }}">{{ post.title }}</a></h2>
+                <p>{{ post.excerpt }}</p>
+                <footer>
+                    <small>Published on {{ post.createdAt|date('Y-m-d H:i') }}</small>
+                </footer>
+            </article>
+            <hr>
+        {% endfor %}
+
+        {# Pagination Controls #}
+        {% if pagesCount > 1 %}
+            <nav aria-label="Pagination">
+                <ul>
+                    {# Previous Page Link #}
+                    {% if currentPage > 1 %}
+                        <li><a href="{{ path('post_index', {'page': currentPage - 1}) }}" aria-label="Previous">‹</a></li>
+                    {% else %}
+                        <li><span aria-hidden="true">‹</span></li> {# Disabled Previous #}
+                    {% endif %}
+
+                    {# Page Number Links #}
+                    {% for i in 1..pagesCount %}
+                        {% if i == currentPage %}
+                            <li><a href="#" aria-current="page">{{ i }}</a></li> {# Current page #}
+                        {% else %}
+                            <li><a href="{{ path('post_index', {'page': i}) }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {# Next Page Link #}
+                    {% if currentPage < pagesCount %}
+                        <li><a href="{{ path('post_index', {'page': currentPage + 1}) }}" aria-label="Next">›</a></li>
+                    {% else %}
+                        <li><span aria-hidden="true">›</span></li> {# Disabled Next #}
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+
+    {% else %}
+        <p>No posts found.</p>
+    {% endif %}
+
+{% endblock %}

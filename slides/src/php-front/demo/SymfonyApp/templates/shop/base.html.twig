@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    {% block stylesheets %}
+        {{ vite_entry_link_tags('live') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ vite_entry_script_tags('live') }}
+    {% endblock %}
+</head>
+<body>
+
+<header class="bg-gray-800 text-white p-4 text-slate-900">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-xl font-bold">
+            Shop
+        </div>
+        {{ component('CartButton') }}
+    </div>
+</header>
+
+<main class="container my-8 mx-auto" id="main">
+    {% block body %}{% endblock %}
+</main>
+</body>
+</html>

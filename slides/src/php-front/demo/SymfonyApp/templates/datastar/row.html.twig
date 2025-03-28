@@ -1,0 +1,13 @@
+<tr class="hover:bg-gray-50 transition-colors duration-150" id="row-{{ post.id }}">
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ post.id }}</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ post.title }}</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        <div class="flex gap-2">
+            <button
+                    data-on-click="@get('{{ path('datastar.posts.edit', {id: post.id}) }}')"
+                    class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-150">
+                Editer
+            </button>
+        </div>
+    </td>
+</tr>

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Post: {{ post.title }}{% endblock %}
+
+{% block body %}
+    <h1>Edit Post: {{ post.title }}</h1>
+
+    {# Optional: Display flash messages #}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {# Render the form #}
+    {{ form_start(form) }}
+        {# Render fields individually for more control, or use form_widget(form) for all #}
+        {{ form_row(form.title) }}
+        {{ form_row(form.excerpt) }}
+        {{ form_row(form.content) }}
+        
+        <button type="submit" class="btn">Save changes</button>
+    {{ form_end(form) }}
+
+    <hr>
+
+    <a href="{{ path('post_show', {'slug': post.slug}) }}">Back to post</a> | 
+    <a href="{{ path('post_index') }}">Back to list</a>
+
+{% endblock %}

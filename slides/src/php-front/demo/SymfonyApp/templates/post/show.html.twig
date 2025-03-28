@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <article>
+        <header>
+            <h1>{{ post.title }}</h1>
+            <p>
+                Published on {{ post.createdAt|date('Y-m-d H:i') }}
+                {% if post.updatedAt != post.createdAt %}
+                    (Last updated: {{ post.updatedAt|date('Y-m-d H:i') }})
+                {% endif %}
+            </p>
+        </header>
+        
+        {# Render HTML content safely #}
+        <div class="content">
+            {{ post.content|raw }}
+        </div>
+
+        <footer>
+            <a href="{{ path('post_edit', {'slug': post.slug}) }}" role="button" class="secondary">Éditer</a> 
+            <a href="{{ path('post_index') }}" role="button" class="contrast">Back to list</a>
+        </footer>
+    </article>
+{% endblock %}
