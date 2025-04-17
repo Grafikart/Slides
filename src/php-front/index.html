@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PHP mort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/tokyo-night-dark.min.css">
+    <style>
+        :root body {
+            --primary: #7a86b8;
+            --secondary: #FFF;
+            --background: #333;
+        }
+    </style>
+  <script type="module" crossorigin src="/Slides/modulepreload-polyfill.js"></script>
+  <script type="module" crossorigin src="/Slides/main.js"></script>
+  <link rel="stylesheet" href="/Slides/assets/main.css">
+</head>
+
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <h1 style="margin-top: -30px;">Comment concilier PHP et Front-end ?</h1>
+            <aside class="notes">
+                Temps : 30s
+            </aside>
+        </section>
+
+        <section>
+            <h2>Qui je suis ?</h2>
+            <ul class="text-secondary">
+                <li class="fragment">Jonathan Boyer</li>
+                <li class="fragment">Freelance full-stack</li>
+                <li class="fragment">Formateur</li>
+            </ul>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+        <section>
+            <h2>C'est quoi le front et le backend ?</h2>
+            <ul class="text-secondary">
+                <li class="fragment">Front : Code côté navigateur (JavaScript)</li>
+                <li class="fragment">Back-end : Code côté serveur (PHP)</li>
+            </ul>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+        <section>
+            <h2>C'était mieux avant !</h2>
+            <p>
+                Le front-end était géré par le backend
+            </p>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+        <section>
+            <h2>Le JavaScript est arrivé</h2>
+            <p>Un peu de JS par ci, par là</p>
+            <aside class="notes">
+                Temps : 2min
+            </aside>
+        </section>
+
+
+        <section>
+        <pre><code class="language-html" data-trim data-noescape>
+      &lt;fieldset>
+        &lt;label for="age">
+          Votre age
+          &lt;input id="age" />
+        &lt;/label>
+        &lt;label for="beers" hidden>
+          Combien de bières avez-vous bu aujourd'hui ?
+          &lt;input id="beers" />
+        &lt;/label>
+        &lt;button type="submit">Envoyer&lt;/button>
+      &lt;/fieldset>
+        </code>
+        </pre>
+        </section>
+
+        <section>
+        <pre><code class="language-js" data-trim data-noescape>
+// Afficher le champs "beers" si l'utilisateur a moins de 18 ans
+const age = document.querySelector('label[for="age"]');
+const beers = document.querySelector('label[for="beers"]');
+
+age.querySelector('input').addEventListener('input', (e) => {
+  if (e.currentTarget.valueAsNumber && e.currentTarget.valueAsNumber >= 18) {
+    beers.removeAttribute('hidden');
+  } else {
+    beers.setAttribute('hidden', true);
+  }
+});
+</code></pre>
+        </section>
+
+        <section>
+            <h2>Solution 1 : Single page application</h2>
+            <p>PHP ne s'occupe que de la partie API</p>
+        </section>
+
+        <section>
+        <pre><code class="language-php" data-trim data-noescape>
+    #[Route('', name: 'post_index', methods: ['GET'])]
+    public function index(Request $request, PostRepository $postRepository): Response
+    {
+        $page = $request->query->getInt('page', 1);
+        $paginator = $postRepository->findPaginated($page);
+        $totalPosts = count($paginator);
+        $pagesCount = ceil($totalPosts / PostRepository::POSTS_PER_PAGE);
+
+        return $this->render('post/index.html.twig', [
+            'posts' => $paginator,
+            'currentPage' => $page,
+            'pagesCount' => $pagesCount,
+            'totalPosts' => $totalPosts, // Pass total count if needed in template
+            'limit' => PostRepository::POSTS_PER_PAGE // Pass limit if needed
+        ]);
+    }
+</code></pre>
+        </section>
+
+        <section>
+        <pre><code class="language-php" data-trim data-noescape>
+    #[Route('', name: 'api_post_index', methods: ['GET'])]
+    public function index(PostRepository $postRepository, Request $request): JsonResponse
+    {
+        $page = $request->query->getInt('page', 1);
+        $limit = $request->query->getInt('limit', 10);
+
+        $paginator = $postRepository->findPaginated($page, $limit);
+        $totalItems = count($paginator);
+        $pagesCount = ceil($totalItems / $limit);
+
+        $responseData = [
+            'data' => $paginator,
+            'pagination' => [
+                'currentPage' => $page,
+                'totalPages' => $pagesCount,
+                'totalItems' => $totalItems,
+                'itemsPerPage' => $limit,
+            ]
+        ];
+
+        // Return the structured data as JSON
+        return $this->json($responseData, Response::HTTP_OK, [], ['groups' => 'post:list']);
+    }
+</code></pre>
+        </section>
+
+        <section>
+            <h2>Demo</h2>
+        </section>
+
+        <section>
+            <h2>Avantages</h2>
+            <ul class="fragment text-secondary" data-fragment>
+                <li>✅ Front et Back bien séparé <span class="text-primary">(pratique en équipe)</span></li>
+                <li>✅ Interface plus fluide <span class="text-primary">(pas de rechargement complet)</span></li>
+            </ul>
+
+            <h2 class="fragment">Inconvénients</h2>
+            <ul class="fragment text-secondary">
+                <li>👎 Authentification <span class="text-primary">(cross-domain, cookies...)</span></li>
+                <li>👎 Logique à dupliquer <span class="text-primary">(permissions, validation...)</span></li>
+                <li>👎 Référencement <span class="text-primary">(rendu côté serveur)</span></li>
+                <li>👎 Mise à jour</li>
+            </ul>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+        <section>
+            <h2>Solution 2 : Booster l'HTML</h2>
+            <p>Donner des super pouvoirs à l'HTML</p>
+        </section>
+
+        <section>
+        <pre><code class="language-html" data-trim data-noescape>
+    &lt;fieldset x-data="{age: ''}">
+        &lt;label for="age">
+            Votre age
+            &lt;input
+                    x-model="age"
+                    id="age"
+                    name="age"
+                    type="number"
+                    placeholder="Age"
+                    autocomplete="given-name"
+            />
+        &lt;/label>
+        &lt;label for="beers" x-show="age && age >= 18">
+            Combien de bières avez-vous bu aujourd'hui ?
+            &lt;input
+                    id="beers"
+                    type="number"
+                    name="beers"
+                    placeholder="Nombre de bières"
+            />
+        &lt;/label>
+        &lt;button type="submit">Envoyer&lt;/button>
+    &lt;/fieldset>
+        </code></pre>
+        </section>
+
+        <section>
+            <h2>Avantages</h2>
+            <ul class="fragment text-secondary" data-fragment>
+                <li>✅ Pas / Peu de JavaScript</li>
+                <li>✅ Librairies pour des composants classiques <span class="text-primary">(<a
+                        href="https://devdojo.com/pines" target="_blank">Pines UI</a>)</span></li>
+            </ul>
+
+            <h2 class="fragment">Inconvénients</h2>
+            <ul class="fragment text-secondary">
+                <li>👎 CSP <span class="text-primary">(Content-Security Policy)</span></li>
+                <li>👎 L'HTML peut devenir complexe</li>
+                <li>👎 Pas de communication serveur par défaut</li>
+            </ul>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+        <section>
+            <h2>Solution 2.5 : Booster encore plus l'HTML</h2>
+            <p>Piloter la mutation du DOM depuis le serveur</p>
+        </section>
+
+        <section>
+        <pre><code class="language-html" data-trim data-noescape>
+&lt;table hx-indicator=".htmx-indicator">
+  &lt;thead>&lt;tr>&lt;th>Name&lt;/th>&lt;th>Email&lt;/th>&lt;th>ID&lt;/th>&lt;/tr>&lt;/thead>
+  &lt;tbody>
+    &lt;tr><!-- ... -->&lt;/tr>
+    &lt;tr><!-- ... -->&lt;/tr>
+    &lt;tr><!-- ... -->&lt;/tr>
+    &lt;tr hx-get="/users/?page=2" hx-trigger="revealed" hx-swap="afterend"><!-- ... -->&lt;/tr>
+  &lt;/tbody>
+&lt;/table>
+  &lt;img class="htmx-indicator" width="60" src="/img/bars.svg">
+        </code></pre>
+        </section>
+
+        <section>
+            <h2>Demo</h2>
+        </section>
+
+        <section>
+            <h2>Avantages</h2>
+            <ul class="fragment text-secondary" data-fragment>
+                <li>✅ Pas / Peu de JavaScript</li>
+                <li>✅ Le serveur pilote le rendu</li>
+            </ul>
+
+            <h2 class="fragment">Inconvénients</h2>
+            <ul class="fragment text-secondary">
+                <li>👎 L'HTML peut devenir complexe</li>
+                <li>👎 Retour serveur plus complexe à gérer</li>
+            </ul>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+        <section>
+            <h2>Solution 3 : Les composants réactifs</h2>
+            <p>Live components (Symfony) & Livewire (laravel)</p>
+        </section>
+
+        <section>
+        <pre><code class="language-php" data-trim data-noescape>
+#[AsLiveComponent]
+class ProductSearch
+{
+    use DefaultActionTrait;
+
+    #[LiveProp(writable: true)]
+    public string $query = '';
+
+    public function __construct(private ProductRepository $productRepository)
+    {
+    }
+
+    public function getProducts(): array
+    {
+        // example method that returns an array of Products
+        return $this->productRepository->search($this->query);
+    }
+}
+        </code></pre>
+        </section>
+
+        <section>
+        <pre><code class="language-html" data-trim data-noescape>
+&lt;div {{ attributes }}>
+    &lt;input
+            type="search"
+            data-model="query"
+    >
+
+    &lt;ul>
+        {% for product in this.products %}
+        &lt;li>{{ product.name }}&lt;/li>
+        {% endfor %}
+    &lt;/ul>
+&lt;/div>
+        </code></pre>
+        </section>
+
+        <section>
+            <h2>Demo</h2>
+        </section>
+
+        <section>
+            <h2>Avantages</h2>
+            <ul class="fragment text-secondary" data-fragment>
+                <li>✅ La logique reste en PHP</li>
+                <li>✅ Composant réutilisable</li>
+            </ul>
+
+            <h2 class="fragment">Inconvénients</h2>
+            <ul class="fragment text-secondary">
+                <li>👎 Aller-retour avec le serveur</li>
+                <li>👎 Sécurité</li>
+            </ul>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+        <section>
+            <h2>Solution 4 : Les îlots</h2>
+            <p>Comme avant mais en plus moderne</p>
+        </section>
+
+        <section>
+        <pre><code class="language-php" data-trim data-noescape>
+&lt;article>
+  &lt;h1>&lt;?= $post->title ?>&lt;/h1>
+  &lt;p>&lt;?= $post->content ?>&lt;/p>
+  &lt;comment-list post="&lt;?= $post->id ?>">&lt;comment-list>
+&lt;/article>
+        </code></pre>
+        </section>
+
+        <section>
+            <h2>Plein de solutions</h2>
+            <ul class="text-secondary">
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/API/Web_components/Using_custom_elements">Custom
+                    Element</a></li>
+                <li><a href="https://lit.dev/">LitElement</a></li>
+                <li><a href="https://stimulus.hotwired.dev/">Stimulus (Symfony UX)</a></li>
+                <li><a href="https://svelte.dev/docs/svelte/custom-elements">Svelte</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Avantages</h2>
+            <ul class="fragment text-secondary" data-fragment>
+                <li>✅ Logique réutilisable</li>
+                <li>✅ Liberté dans le choix de la solution</li>
+            </ul>
+
+            <h2 class="fragment">Inconvénients</h2>
+            <ul class="fragment text-secondary">
+                <li>👎 Il faut faire du JavaScript</li>
+            </ul>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+        <section>
+            <h1>Aucune solution n'est parfaite</h1>
+            <p>
+                Il faut souvent combiner
+            </p>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+        <section>
+            <h1>Question ?</h1>
+            <aside class="notes">
+                Temps : 1min
+            </aside>
+        </section>
+
+
+    </div>
+</div>
+</body>
+
+</html>
