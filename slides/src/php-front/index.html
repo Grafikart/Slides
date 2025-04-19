@@ -92,10 +92,10 @@
         <section>
         <pre><code class="language-js" data-trim data-noescape>
 // Afficher le champs "beers" si l'utilisateur a moins de 18 ans
-const age = document.querySelector('label[for="age"]');
+const age = document.querySelector('#age');
 const beers = document.querySelector('label[for="beers"]');
 
-age.querySelector('input').addEventListener('input', (e) => {
+age.addEventListener('input', (e) => {
   if (e.currentTarget.valueAsNumber && e.currentTarget.valueAsNumber >= 18) {
     beers.removeAttribute('hidden');
   } else {
@@ -104,6 +104,15 @@ age.querySelector('input').addEventListener('input', (e) => {
 });
 </code></pre>
         </section>
+
+                <section>
+                <pre><code class="language-js" data-trim data-noescape>
+                    $('#age').on('input', function () {
+                      const age = parseInt($(this).val(), 10);
+                      $('label[for="beers"]').attr('hidden', isNaN(age) || age &lt; 18);
+                    });
+        </code></pre>
+                </section>
 
         <section>
             <h2>Solution 1 : Single page application</h2>
