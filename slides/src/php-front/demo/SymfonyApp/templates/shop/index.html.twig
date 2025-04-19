@@ -4,29 +4,6 @@
 
 {% block body %}
 <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold  mb-8">Notre Boutique</h1>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {% for product in products %}
-            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
-                {# Utilise une image par défaut si product.image n'est pas défini #}
-                <img src="https://picsum.photos/id/{{ product.id + 300 }}/300/200" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-2 truncate" title="{{ product.title }}">{{ product.title }}</h2>
-                    {# Ajoute une description courte avec valeur par défaut et troncature #}
-                    <p class="text-gray-600 mb-4 text-sm h-10 overflow-hidden">
-                        {{ product.description | default('Description non disponible.') | slice(0, 60) }}
-                        {% if product.description | default('') | length > 60 %}...{% endif %}
-                    </p>
-                    <div class="flex justify-between items-center mt-4">
-                        <span class="text-xl font-bold text-indigo-600">{{ (product.price / 100) | number_format(2, ',', ' ') }} €</span>
-                        {{ component('AddToCartButton', {productId: product.id}) }}
-                    </div>
-                </div>
-            </div>
-        {% else %}
-            <p class="col-span-full text-center text-gray-500 py-10">Aucun produit trouvé.</p>
-        {% endfor %}
-    </div>
+    {{ component('ProductsList') }}
 </div>
 {% endblock %}
