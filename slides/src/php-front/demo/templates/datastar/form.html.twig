@@ -1,0 +1,21 @@
+<tr id="row-{{ post.id }}">
+    <td colspan="3">
+            {{ form_start(form, {
+                attr: {
+                'data-on-submit': "@post('" ~ path('datastar.posts.edit', {id: post.id}) ~ "', {contentType: 'form'})"
+            }}) }}
+            {{ form_rest(form) }}
+            <div class="flex mt-4 gap-2">
+                <button
+                        data-on-click="@get('{{ path('datastar.posts.show', {id: post.id}) }}')"
+                        type="reset"
+                        class="btn btn-neutral">
+                    Annuler
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Envoyer
+                </button>
+            </div>
+            {{ form_end(form) }}
+    </td>
+</tr>

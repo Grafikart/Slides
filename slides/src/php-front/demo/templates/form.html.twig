@@ -1,0 +1,217 @@
+{% use 'form_div_layout.html.twig' %}
+
+{# Tailwind CSS Form Theme for Symfony #}
+{# Based on Symfony's form_div_layout.html.twig but styled with Tailwind CSS #}
+
+{# Form Row #}
+{% block form_row %}
+    <div class="fieldset">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+        {% if form.vars.help is defined and form.vars.help %}
+            <p class="label">{{ form.vars.help }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{# Form Label #}
+{% block form_label %}
+    {% if label is not same as(false) %}
+        {% if not compound %}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {% endif %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('fieldset-legend') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if label is empty %}
+            {%- if label_format is not empty -%}
+                {% set label = label_format|replace({
+                    '%name%': name,
+                    '%id%': id,
+                }) %}
+            {%- else -%}
+                {% set label = name|humanize %}
+            {%- endif -%}
+        {% endif %}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %} class="fieldset-legend">
+            {{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}
+        </label>
+    {% endif %}
+{% endblock %}
+
+{# Form Widget #}
+{% block form_widget %}
+    {% if compound %}
+        {{ block('form_widget_compound') }}
+    {% else %}
+        {{ block('form_widget_simple') }}
+    {% endif %}
+{% endblock %}
+
+{# Form Widget Simple (text inputs, etc.) #}
+{% block form_widget_simple %}
+    {% set type = type|default('text') %}
+    {% set widget_class = 'input w-full' %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ' ~ widget_class)|trim}) %}
+    <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}>
+{% endblock %}
+
+{# Textarea Widget #}
+{% block textarea_widget %}
+    {% set widget_class = 'textarea w-full' %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ' ~ widget_class)|trim}) %}
+    <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+{% endblock %}
+
+{# Choice Widget #}
+{% block choice_widget %}
+    {% if expanded %}
+        {{ block('choice_widget_expanded') }}
+    {% else %}
+        {{ block('choice_widget_collapsed') }}
+    {% endif %}
+{% endblock %}
+
+{# Select Widget #}
+{% block choice_widget_collapsed %}
+    {% set widget_class = 'mt-1 block w-full rounded-md p-2 border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm' %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ' ~ widget_class)|trim}) %}
+    <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+        {% if placeholder is not none %}
+            <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder != '' ? (translation_domain is same as(false) ? placeholder : placeholder|trans({}, translation_domain)) }}</option>
+        {% endif %}
+        {% if preferred_choices|length > 0 %}
+            {% set options = preferred_choices %}
+            {{ block('choice_widget_options') }}
+            {% if choices|length > 0 and separator is not none %}
+                <option disabled="disabled">{{ separator }}</option>
+            {% endif %}
+        {% endif %}
+        {% set options = choices %}
+        {{ block('choice_widget_options') }}
+    </select>
+{% endblock %}
+
+{# Select Options #}
+{% block choice_widget_options %}
+    {% for group_label, choice in options %}
+        {% if choice is iterable %}
+            <optgroup label="{{ choice_translation_domain is same as(false) ? group_label : group_label|trans({}, choice_translation_domain) }}">
+                {% set options = choice %}
+                {{ block('choice_widget_options') }}
+            </optgroup>
+        {% else %}
+            <option value="{{ choice.value }}"{% if choice.attr %} {% set attr = choice.attr %}{{ block('attributes') }}{% endif %}{% if choice is selectedchoice(value) %} selected="selected"{% endif %}>{{ choice_translation_domain is same as(false) ? choice.label : choice.label|trans({}, choice_translation_domain) }}</option>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+{# Checkbox and Radio Buttons #}
+{% block choice_widget_expanded %}
+    <div {{ block('widget_container_attributes') }}>
+        {% for child in form %}
+            <div class="flex items-center mb-2">
+                {{ form_widget(child, {'attr': {'class': 'h-4 w-4 rounded p-2 border border-gray-300 text-indigo-600 focus:ring-indigo-500'}}) }}
+                {{ form_label(child, null, {'label_attr': {'class': 'ml-2 block text-sm text-gray-900'}}) }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{# Checkbox Widget #}
+{% block checkbox_widget %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' h-4 w-4 rounded p-2 border border-gray-300 text-indigo-600 focus:ring-indigo-500')|trim}) %}
+    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %}>
+{% endblock %}
+
+{# Radio Widget #}
+{% block radio_widget %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' h-4 w-4 p-2 border border-gray-300 text-indigo-600 focus:ring-indigo-500')|trim}) %}
+    <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %}>
+{% endblock %}
+
+{# Form Errors #}
+{% block form_errors %}
+    {% if errors|length > 0 %}
+        <ul class="mt-1 text-sm text-red-600">
+            {% for error in errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{# Button Row #}
+{% block button_row %}
+    <div class="mt-6">
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{# Button Widget #}
+{% block button_widget %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ 'btn btn-primary')|trim}) %}
+    {% if label is empty %}
+        {% set label = name|humanize %}
+    {% endif %}
+    <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>{{ translation_domain is same as(false) ? label : label|trans({}, translation_domain) }}</button>
+{% endblock %}
+
+{# Submit Widget #}
+{% block submit_widget %}
+    {% set type = type|default('submit') %}
+    {{ block('button_widget') }}
+{% endblock %}
+
+{# Reset Widget #}
+{% block reset_widget %}
+    {% set type = type|default('reset') %}
+    {{ block('button_widget') }}
+{% endblock %}
+
+{# Form Widget Compound #}
+{% block form_widget_compound %}
+    <div {{ block('widget_container_attributes') }}>
+        {% if form is rootform %}
+            {{ form_errors(form) }}
+        {% endif %}
+        {{ block('form_rows') }}
+        {{ form_rest(form) }}
+    </div>
+{% endblock %}
+
+{# Form Rows #}
+{% block form_rows %}
+    {% for child in form %}
+        {{ form_row(child) }}
+    {% endfor %}
+{% endblock %}
+
+{# Widget Attributes #}
+{% block widget_attributes %}
+    id="{{ id }}" name="{{ full_name }}"
+    {%- if disabled %} disabled="disabled"{% endif -%}
+    {%- if required %} required="required"{% endif -%}
+    {{ block('attributes') }}
+{% endblock %}
+
+{# Widget Container Attributes #}
+{% block widget_container_attributes %}
+    {%- if id is not empty %}id="{{ id }}"{% endif -%}
+    {{ block('attributes') }}
+{% endblock %}
+
+{# Attributes #}
+{% block attributes %}
+    {%- for attrname, attrvalue in attr -%}
+        {{- " " -}}
+        {%- if attrname in ['placeholder', 'title'] -%}
+            {{- attrname }}="{{ translation_domain is same as(false) ? attrvalue : attrvalue|trans({}, translation_domain) }}"
+        {%- elseif attrvalue is same as(true) -%}
+            {{- attrname }}="{{ attrname }}"
+        {%- elseif attrvalue is not same as(false) -%}
+            {{- attrname }}="{{ attrvalue }}"
+        {%- endif -%}
+    {%- endfor -%}
+{% endblock %}

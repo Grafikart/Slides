@@ -1,4 +1,8 @@
-.PHONY: dev
+.PHONY: dev migrate
 
 dev:
-	php -S localhost:8000
+	parallel -j 2 --line-buffer ::: "symfony serve" "bun run dev"
+
+migrate:
+	php bin/console doctrine:migration:migrate
+	php bin/console doctrine:fixtures:load

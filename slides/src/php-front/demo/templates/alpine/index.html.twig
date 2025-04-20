@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AlpineJS</title>
+    {% block stylesheets %}
+        {{ vite_entry_link_tags('live') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ vite_entry_script_tags('live') }}
+    {% endblock %}
+</head>
+<body>
+
+<div class="container py-8">
+
+    <h1 class="text-2xl font-bold mb-4">Votre avis nous intéresse</h1>
+
+    <form action="" class="space-y-4" x-data="{age: ''}">
+        <fieldset class="fieldset">
+            <label for="age" class="label">
+                Votre age
+            </label>
+            <input
+                    class="input"
+                    x-model="age"
+                    id="age"
+                    name="age"
+                    type="number"
+                    placeholder="Age"
+                    autocomplete="given-name"
+            />
+        </fieldset>
+        <fieldset class="fieldset" x-show="age && age >= 18">
+            <label for="beers" class="label">
+                Combien de bières avez-vous bu aujourd'hui ?
+            </label>
+            <input
+                    class="input"
+                    id="beers"
+                    type="number"
+                    name="beers"
+                    placeholder="Nombre de bières"
+            />
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'datastar/base.html.twig' %}
+
+{% block body %}
+
+    <table class="table">
+        <thead >
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            {% include 'datastar/row.html.twig' %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include 'components/pagination.html.twig' with {
+        route_name: 'posts.index',
+    } %}
+{% endblock %}

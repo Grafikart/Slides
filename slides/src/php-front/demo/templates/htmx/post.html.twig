@@ -1,0 +1,35 @@
+{% extends 'htmx/base.html.twig' %}
+
+{% block body %}
+
+        <dialog
+                open
+                class="modal"
+        >
+            <div class="modal-box">
+                {{ form_start(form, {attr: {
+                    'hx-post': path('posts.edit', {id: post.id}),
+                    'hx-target': 'dialog',
+                    'hx-select': 'dialog',
+                    'hx-swap': 'outerHTML',
+                    'hx-push-url': 'true',
+                }}) }}
+                {{ form_rest(form) }}
+                <div class="modal-action">
+                    <button
+                            hx-get="{{ path('posts.index') }}"
+                            hx-target="#main"
+                            hx-swap="outerHTML"
+                            type="reset"
+                            class="btn btn-neutral">
+                        Annuler
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Sauvegarder
+                    </button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </dialog>
+
+{% endblock %}

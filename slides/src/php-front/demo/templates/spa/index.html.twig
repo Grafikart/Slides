@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>API Symfony</title>
+        {% block stylesheets %}
+            {{ vite_entry_link_tags('spa') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ vite_entry_script_tags('spa', { dependency: 'react'}) }}
+        {% endblock %}
+    </head>
+    <body class="bg-base-100">
+        <div id="root"></div>
+    </body>
+</html>

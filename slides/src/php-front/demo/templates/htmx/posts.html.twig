@@ -1,0 +1,42 @@
+{% extends 'htmx/base.html.twig' %}
+
+{% block body %}
+        <table class="table table-zebra">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>
+                        <div class="flex gap-2">
+                            <a
+                                    href="{{ path('posts.edit', {id: post.id}) }}"
+                                    hx-push-url="true"
+                                    hx-get="{{ path('posts.edit', {id: post.id}) }}"
+                                    class="btn btn-primary">
+                                Editer
+                            </a>
+                            <button
+                                    hx-delete="{{ path('posts.edit', {id: post.id}) }}"
+                                    hx-confirm="Voulez-vous vraiment supprimer cet article ?"
+                                    class="btn btn-error">
+                                Supprimer
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% include 'components/pagination.html.twig' with {
+            route_name: 'posts.index',
+        } %}
+{% endblock %}

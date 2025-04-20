@@ -1,0 +1,41 @@
+{# templates/components/pagination.html.twig #}
+<div class="join w-max my-4 mx-auto flex">
+    {% if currentPage > 1 %}
+        <a
+            href="{{ path(route_name, {page: currentPage - 1}|merge(route_params|default({}))) }}"
+            hx-get="{{ path(route_name, {page: currentPage - 1}|merge(route_params|default({}))) }}"
+            hx-push-url="true"
+            class="join-item btn"
+        >
+            Précédent
+        </a>
+    {% endif %}
+
+    {% for i in 1..pagesCount %}
+        <a
+            href="{{ path(route_name, {page: i}|merge(route_params|default({}))) }}"
+            hx-get="{{ path(route_name, {page: i}|merge(route_params|default({}))) }}"
+            hx-push-url="true"
+            class="join-item btn {% if i == currentPage %}btn-primary {% endif %}"
+        >
+            {{ i }}
+        </a>
+    {% endfor %}
+
+    {% if currentPage < pagesCount %}
+        <a
+            href="{{ path(route_name, {page: currentPage + 1}|merge(route_params|default({}))) }}"
+            hx-get="{{ path(route_name, {page: currentPage + 1}|merge(route_params|default({}))) }}"
+            hx-push-url="true"
+            class="joint-item btn"
+        >
+            Suivant
+        </a>
+    {% endif %}
+</div>
+
+{% if show_total|default(true) %}
+    <div class="text-center text-base-content/50 mt-4">
+        Total: {{ totalPosts }} articles
+    </div>
+{% endif %}

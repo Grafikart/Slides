@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Démonstration approches front{% endblock %}</title>
+
+    {% block stylesheets %}
+        {{ vite_entry_link_tags('htmx') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ vite_entry_script_tags('htmx') }}
+    {% endblock %}
+</head>
+<body>
+<main class="container my-8 mx-auto" id="main">
+    <article class="text-base">
+    <h2 class="text-2xl font-bold mb-2">Démonstration des approches front-end</h2>
+    <p class="text-base-content/70 mb-4">
+        Démonstration de différentes approches pour méler PHP et front-end
+    </p>
+    <div class="list rounded-box shadow-md text-base-content/70 color-base-200">
+        <a class="list-row hover:text-base-content" href="{{ path('alpine') }}">AlpineJS</a>
+        <a class="list-row hover:text-base-content" href="{{ path('spa') }}">Single page application</a>
+        <a class="list-row hover:text-base-content" href="{{ path('posts.index') }}">htmx</a>
+        <a class="list-row hover:text-base-content" href="{{ path('datastar') }}">Datastar</a>
+        <a class="list-row hover:text-base-content" href="{{ path('shop') }}">Live components</a>
+    </div>
+    </article>
+</main>
+</body>
+</html>

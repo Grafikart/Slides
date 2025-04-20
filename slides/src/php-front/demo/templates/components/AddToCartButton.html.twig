@@ -1,0 +1,19 @@
+{% if this.isInCart %}
+    <button
+            {{ attributes }}
+            class="btn btn-error"
+            data-action="live#action"
+            data-live-action-param="remove"
+    >
+        Retirer du panier
+    </button>
+{% else %}
+    <button
+            {{ attributes }}
+            class="btn btn-primary"
+            data-action="live#action"
+            data-live-action-param="add"
+    >
+        Ajouter au panier
+    </button>
+{% endif %}

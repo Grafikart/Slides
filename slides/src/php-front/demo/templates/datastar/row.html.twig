@@ -1,0 +1,11 @@
+<tr id="row-{{ post.id }}">
+    <td>{{ post.id }}</td>
+    <td>{{ post.title }}</td>
+    <td>
+            <button
+                    data-on-click="@get('{{ path('datastar.posts.edit', {id: post.id}) }}')"
+                    class="btn btn-primary">
+                Editer
+            </button>
+    </td>
+</tr>

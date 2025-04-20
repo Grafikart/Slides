@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    {% block stylesheets %}
+        {{ vite_entry_link_tags('datastar') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ vite_entry_script_tags('datastar') }}
+    {% endblock %}
+</head>
+<body>
+<div class="container mx-auto my-8 prose" data-signals-title="'Exemple d\'ergonomie basé sur datastar'">
+    <h1 data-text="$title">Exemple d'ergonomie basé sur datastar</h1>
+</div>
+<main class="container my-8 mx-auto color-slate-900">
+    {% block body %}{% endblock %}
+</main>
+<aside
+       data-signals-flash.message="null"
+       data-signals-flash.type="'success'"
+       role="alert"
+       data-class="{
+        'alert-success': $flash.type === 'success',
+        'alert-error': $flash.type === 'danger'
+       }"
+       class="alert fixed top-4 right-4 flex gap-4 items-center"
+       data-show="$flash.message !== null">
+    <span data-text="$flash.message"></span>
+    <button class="cursor-pointer" data-on-click="$flash.message = null" title="Fermer">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path></svg>
+    </button>
+</aside>
+</body>
+</html>
