@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pourquoi je n'aime pas NextJS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+  <script type="module" src="../main.ts" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/styles/tokyo-night-dark.min.css">
+  <style>
+    html,
+    body {
+      font-family: Geist, sans-serif;
+    }
+
+    :root body {
+      --primary: #FFF;
+      --secondary: rgb(136, 136, 136);
+      --background: #000;
+    }
+
+    .reveal {
+      background: linear-gradient(rgb(0, 0, 0) 30%, rgb(17, 17, 17) 100%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>Pourquoi je n'aime pas NextJS</h1>
+        <p>D'un point de vue d'un développeur backend</p>
+      </section>
+
+      <section>
+        <h2>C'est quoi NextJS ?</h2>
+        <p>
+          Next.js is a React framework for building full-stack web applications.
+        </p>
+      </section>
+
+      <section>
+        <h2>Les données sont en doubles</h2>
+        <p>
+          Nécessaire pour la réconciliation
+        </p>
+      </section>
+
+      <section>
+        <h2>Le "File base routing"</h2>
+        <p>
+          Un petit retour en arrière ?
+        </p>
+      </section>
+
+      <section>
+        <h2>Des conventions particulières</h2>
+        <p>
+          Pour un développeur React
+        </p>
+        <pre><code data-trim data-noescape class="language-ts">
+export default async function Page() {
+  const data = await fetch('https://api.vercel.app/blog')
+  const posts = await data.json()
+  return (
+    &lt;ul>
+      {posts.map((post) => (
+        &lt;li key={post.id}>{post.title}&lt;/li>
+      ))}
+    &lt;/ul>
+  )
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>"Full-stack"</h2>
+        <p>Ne résoud qu'une partie du problème</p>
+      </section>
+
+      <section>
+        <h2>Trop de magie</h2>
+        <p>La logique interne est masquée par l'outil</p>
+      </section>
+
+      <section>
+        <h2>Complexifie React</h2>
+        <p>React devrait se limiter à son rôle</p>
+      </section>
+
+      <section>
+        <h2>Conclure</h2>
+        <p>Tout est cyclique</p>
+      </section>
+
+    </div>
+  </div>
+</body>
+
+</html>
