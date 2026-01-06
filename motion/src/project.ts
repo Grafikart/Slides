@@ -3,7 +3,7 @@ import {Code, LezerHighlighter} from '@motion-canvas/2d';
 import {parser} from '@lezer/javascript';
 
 import './global.css';
-import {langScenes} from "./scenes/lang";
+import {scenes} from "./scenes/UnionFind";
 
 Code.defaultHighlighter = new LezerHighlighter(
   parser.configure({
@@ -13,5 +13,5 @@ Code.defaultHighlighter = new LezerHighlighter(
 );
 
 export default makeProject({
-  scenes: langScenes,
+  scenes,
 });
