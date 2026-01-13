@@ -1,0 +1,46 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "node",
+      "targetTime": 4.929039196870439
+    },
+    {
+      "name": "edge",
+      "targetTime": 7.45423241708315
+    },
+    {
+      "name": "NodeExploration",
+      "targetTime": 10.645772189815979
+    },
+    {
+      "name": "Loop",
+      "targetTime": 16.94442771040047
+    },
+    {
+      "name": "links",
+      "targetTime": 21.232697711939363
+    },
+    {
+      "name": "union",
+      "targetTime": 24.453852887006416
+    },
+    {
+      "name": "Union",
+      "targetTime": 34.84481645427546
+    },
+    {
+      "name": "PathCompression",
+      "targetTime": 38.36404633756408
+    },
+    {
+      "name": "UnionBySize",
+      "targetTime": 45.00866150955336
+    },
+    {
+      "name": "UnionBySize2",
+      "targetTime": 47.57923817570706
+    }
+  ],
+  "seed": 543402466
+}

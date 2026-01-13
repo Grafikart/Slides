@@ -1,4 +1,4 @@
-import unionFind from './UnionFind'
+import unionFind from './UnionFind?scene'
 
 export const scenes = [
   unionFind
