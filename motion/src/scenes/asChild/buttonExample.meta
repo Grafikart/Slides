@@ -1,0 +1,22 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "as_a",
+      "targetTime": 26.483828668055022
+    },
+    {
+      "name": "as_navlink",
+      "targetTime": 32.28289964206005
+    },
+    {
+      "name": "as_navlink_href",
+      "targetTime": 46.6473153256237
+    },
+    {
+      "name": "as_child",
+      "targetTime": 58.49543135780529
+    }
+  ],
+  "seed": 1265927915
+}
