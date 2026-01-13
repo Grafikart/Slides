@@ -1,0 +1,34 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "start",
+      "targetTime": 100
+    },
+    {
+      "name": "next",
+      "targetTime": 101.4
+    },
+    {
+      "name": "ssr",
+      "targetTime": 103.4
+    },
+    {
+      "name": "browser",
+      "targetTime": 106.33378923273806
+    },
+    {
+      "name": "react_components",
+      "targetTime": 115.43378923273805
+    },
+    {
+      "name": "react_render",
+      "targetTime": 116.43378923273805
+    },
+    {
+      "name": "diff",
+      "targetTime": 120
+    }
+  ],
+  "seed": 1505112995
+}
