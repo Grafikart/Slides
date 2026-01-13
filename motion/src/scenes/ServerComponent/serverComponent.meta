@@ -1,0 +1,50 @@
+{
+  "version": 0,
+  "timeEvents": [
+    {
+      "name": "code",
+      "targetTime": 33
+    },
+    {
+      "name": "html",
+      "targetTime": 36
+    },
+    {
+      "name": "reset",
+      "targetTime": 49
+    },
+    {
+      "name": "hydrate",
+      "targetTime": 52
+    },
+    {
+      "name": "bouton",
+      "targetTime": 57
+    },
+    {
+      "name": "click",
+      "targetTime": 60
+    },
+    {
+      "name": "RSC",
+      "targetTime": 68
+    },
+    {
+      "name": "serialization",
+      "targetTime": 94
+    },
+    {
+      "name": "client_node",
+      "targetTime": 104
+    },
+    {
+      "name": "end_client_node",
+      "targetTime": 108
+    },
+    {
+      "name": "function_rsc",
+      "targetTime": 109
+    }
+  ],
+  "seed": 2925810115
+}
